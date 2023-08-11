@@ -18,6 +18,10 @@
 		17F932B62A86581E000B2472 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 17F932B52A86581E000B2472 /* SwiftyJSON */; };
 		17F932B92A86590E000B2472 /* TrendingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F932B72A86590E000B2472 /* TrendingTableViewCell.swift */; };
 		17F932BA2A86590E000B2472 /* TrendingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17F932B82A86590E000B2472 /* TrendingTableViewCell.xib */; };
+		17F932BC2A865FF6000B2472 /* TrendingMovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F932BB2A865FF6000B2472 /* TrendingMovieModel.swift */; };
+		17F932C02A8663B1000B2472 /* TrendingMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F932BF2A8663B1000B2472 /* TrendingMovieViewController.swift */; };
+		17F932C22A86659E000B2472 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 17F932C12A86659E000B2472 /* .gitignore */; };
+		17F932C42A8665BF000B2472 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F932C32A8665BF000B2472 /* APIKeys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +35,10 @@
 		17F932A82A864905000B2472 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17F932B72A86590E000B2472 /* TrendingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingTableViewCell.swift; sourceTree = "<group>"; };
 		17F932B82A86590E000B2472 /* TrendingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrendingTableViewCell.xib; sourceTree = "<group>"; };
+		17F932BB2A865FF6000B2472 /* TrendingMovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingMovieModel.swift; sourceTree = SOURCE_ROOT; };
+		17F932BF2A8663B1000B2472 /* TrendingMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingMovieViewController.swift; sourceTree = "<group>"; };
+		17F932C12A86659E000B2472 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		17F932C32A8665BF000B2472 /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +58,7 @@
 		17F9328E2A864904000B2472 = {
 			isa = PBXGroup;
 			children = (
+				17F932C12A86659E000B2472 /* .gitignore */,
 				17F932992A864904000B2472 /* MediaProject */,
 				17F932982A864904000B2472 /* Products */,
 			);
@@ -66,15 +75,18 @@
 		17F932992A864904000B2472 /* MediaProject */ = {
 			isa = PBXGroup;
 			children = (
+				17F932BB2A865FF6000B2472 /* TrendingMovieModel.swift */,
 				17F9329A2A864904000B2472 /* AppDelegate.swift */,
 				17F9329C2A864904000B2472 /* SceneDelegate.swift */,
 				17F9329E2A864904000B2472 /* ViewController.swift */,
 				17F932A02A864904000B2472 /* Main.storyboard */,
+				17F932BF2A8663B1000B2472 /* TrendingMovieViewController.swift */,
 				17F932B72A86590E000B2472 /* TrendingTableViewCell.swift */,
 				17F932B82A86590E000B2472 /* TrendingTableViewCell.xib */,
 				17F932A32A864905000B2472 /* Assets.xcassets */,
 				17F932A52A864905000B2472 /* LaunchScreen.storyboard */,
 				17F932A82A864905000B2472 /* Info.plist */,
+				17F932C32A8665BF000B2472 /* APIKeys.swift */,
 			);
 			path = MediaProject;
 			sourceTree = "<group>";
@@ -147,6 +159,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17F932C22A86659E000B2472 /* .gitignore in Resources */,
 				17F932BA2A86590E000B2472 /* TrendingTableViewCell.xib in Resources */,
 				17F932A72A864905000B2472 /* LaunchScreen.storyboard in Resources */,
 				17F932A42A864905000B2472 /* Assets.xcassets in Resources */,
@@ -161,9 +174,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17F932C02A8663B1000B2472 /* TrendingMovieViewController.swift in Sources */,
 				17F932B92A86590E000B2472 /* TrendingTableViewCell.swift in Sources */,
+				17F932C42A8665BF000B2472 /* APIKeys.swift in Sources */,
 				17F9329F2A864904000B2472 /* ViewController.swift in Sources */,
 				17F9329B2A864904000B2472 /* AppDelegate.swift in Sources */,
+				17F932BC2A865FF6000B2472 /* TrendingMovieModel.swift in Sources */,
 				17F9329D2A864904000B2472 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
