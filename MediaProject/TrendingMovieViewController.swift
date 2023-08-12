@@ -9,6 +9,9 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
+//MARK: - prefetch 또는 데이터 동기 비동기 처리 정하기, rowheight 'dispatchque.main.async'에서 처리, 리팩토링
+
+
 class TrendingMovieViewController: UIViewController {
     
     var movieList: [TrendingMovie] = []
@@ -18,13 +21,14 @@ class TrendingMovieViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
 
         let nib = UINib(nibName: "TrendingTableViewCell", bundle: nil)
         trendingTableView.register(nib, forCellReuseIdentifier: "TrendingTableViewCell")
         
-        trendingTableView.rowHeight = 600
+        let cellHeight = UIScreen.main.bounds.height * 0.7
+        
+        trendingTableView.rowHeight = cellHeight
+        
         
         trendingTableView.delegate = self
         trendingTableView.dataSource = self
@@ -38,7 +42,7 @@ class TrendingMovieViewController: UIViewController {
         let url = "https://api.themoviedb.org/3/trending/movie/day?language=en-US"
         
         let header: HTTPHeaders = [
-            "Authorization": APIKeys.treding
+            "Authorization": APIKeys.token
         ]
         
         
@@ -72,12 +76,23 @@ class TrendingMovieViewController: UIViewController {
 
 
 extension TrendingMovieViewController: UITableViewDelegate {
+    
+    // 선택하면 데이터 넘기고 화면 전환
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        print("작동하나?")
+        let vc = storyboard?.instantiateViewController(withIdentifier: "CreditViewController") as! CreditViewController
+        
+        vc.movieID = movieList[indexPath.row].id
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 
 }
 
 extension TrendingMovieViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(movieList.count)
+//        print(movieList.count)
         return movieList.count
     }
 
@@ -90,6 +105,10 @@ extension TrendingMovieViewController: UITableViewDataSource {
         
         return cell
     }
-
-
 }
+
+//extension TrendingMovieViewController: UITableViewDataSourcePrefetching {
+//    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+//        <#code#>
+//    }
+//}

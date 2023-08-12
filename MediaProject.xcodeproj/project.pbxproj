@@ -22,6 +22,10 @@
 		17F932C02A8663B1000B2472 /* TrendingMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F932BF2A8663B1000B2472 /* TrendingMovieViewController.swift */; };
 		17F932C22A86659E000B2472 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 17F932C12A86659E000B2472 /* .gitignore */; };
 		17F932C42A8665BF000B2472 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F932C32A8665BF000B2472 /* APIKeys.swift */; };
+		17F932C82A866FB6000B2472 /* CreditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F932C72A866FB6000B2472 /* CreditViewController.swift */; };
+		17F932CA2A87188D000B2472 /* CreditDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F932C92A87188D000B2472 /* CreditDataModel.swift */; };
+		17F932CD2A871904000B2472 /* CreditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F932CB2A871904000B2472 /* CreditTableViewCell.swift */; };
+		17F932CE2A871904000B2472 /* CreditTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17F932CC2A871904000B2472 /* CreditTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,10 +39,14 @@
 		17F932A82A864905000B2472 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17F932B72A86590E000B2472 /* TrendingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingTableViewCell.swift; sourceTree = "<group>"; };
 		17F932B82A86590E000B2472 /* TrendingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrendingTableViewCell.xib; sourceTree = "<group>"; };
-		17F932BB2A865FF6000B2472 /* TrendingMovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingMovieModel.swift; sourceTree = SOURCE_ROOT; };
+		17F932BB2A865FF6000B2472 /* TrendingMovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TrendingMovieModel.swift; path = MediaProject/DataModel/TrendingMovieModel.swift; sourceTree = SOURCE_ROOT; };
 		17F932BF2A8663B1000B2472 /* TrendingMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingMovieViewController.swift; sourceTree = "<group>"; };
 		17F932C12A86659E000B2472 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		17F932C32A8665BF000B2472 /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
+		17F932C72A866FB6000B2472 /* CreditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditViewController.swift; sourceTree = "<group>"; };
+		17F932C92A87188D000B2472 /* CreditDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreditDataModel.swift; path = MediaProject/DataModel/CreditDataModel.swift; sourceTree = SOURCE_ROOT; };
+		17F932CB2A871904000B2472 /* CreditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditTableViewCell.swift; sourceTree = "<group>"; };
+		17F932CC2A871904000B2472 /* CreditTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreditTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,11 +83,14 @@
 		17F932992A864904000B2472 /* MediaProject */ = {
 			isa = PBXGroup;
 			children = (
-				17F932BB2A865FF6000B2472 /* TrendingMovieModel.swift */,
+				17F932CB2A871904000B2472 /* CreditTableViewCell.swift */,
+				17F932CC2A871904000B2472 /* CreditTableViewCell.xib */,
+				17F932CF2A871E10000B2472 /* DataModel */,
 				17F9329A2A864904000B2472 /* AppDelegate.swift */,
 				17F9329C2A864904000B2472 /* SceneDelegate.swift */,
 				17F9329E2A864904000B2472 /* ViewController.swift */,
 				17F932A02A864904000B2472 /* Main.storyboard */,
+				17F932C72A866FB6000B2472 /* CreditViewController.swift */,
 				17F932BF2A8663B1000B2472 /* TrendingMovieViewController.swift */,
 				17F932B72A86590E000B2472 /* TrendingTableViewCell.swift */,
 				17F932B82A86590E000B2472 /* TrendingTableViewCell.xib */,
@@ -89,6 +100,15 @@
 				17F932C32A8665BF000B2472 /* APIKeys.swift */,
 			);
 			path = MediaProject;
+			sourceTree = "<group>";
+		};
+		17F932CF2A871E10000B2472 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				17F932C92A87188D000B2472 /* CreditDataModel.swift */,
+				17F932BB2A865FF6000B2472 /* TrendingMovieModel.swift */,
+			);
+			path = DataModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +183,7 @@
 				17F932BA2A86590E000B2472 /* TrendingTableViewCell.xib in Resources */,
 				17F932A72A864905000B2472 /* LaunchScreen.storyboard in Resources */,
 				17F932A42A864905000B2472 /* Assets.xcassets in Resources */,
+				17F932CE2A871904000B2472 /* CreditTableViewCell.xib in Resources */,
 				17F932A22A864904000B2472 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,11 +197,14 @@
 			files = (
 				17F932C02A8663B1000B2472 /* TrendingMovieViewController.swift in Sources */,
 				17F932B92A86590E000B2472 /* TrendingTableViewCell.swift in Sources */,
+				17F932CD2A871904000B2472 /* CreditTableViewCell.swift in Sources */,
 				17F932C42A8665BF000B2472 /* APIKeys.swift in Sources */,
+				17F932CA2A87188D000B2472 /* CreditDataModel.swift in Sources */,
 				17F9329F2A864904000B2472 /* ViewController.swift in Sources */,
 				17F9329B2A864904000B2472 /* AppDelegate.swift in Sources */,
 				17F932BC2A865FF6000B2472 /* TrendingMovieModel.swift in Sources */,
 				17F9329D2A864904000B2472 /* SceneDelegate.swift in Sources */,
+				17F932C82A866FB6000B2472 /* CreditViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
