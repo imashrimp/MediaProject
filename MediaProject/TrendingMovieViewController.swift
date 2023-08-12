@@ -33,9 +33,18 @@ class TrendingMovieViewController: UIViewController {
         trendingTableView.delegate = self
         trendingTableView.dataSource = self
         
+        configureSetNav()
+        
         callRequest()
     }
     
+    
+    func configureSetNav() {
+        
+        self.navigationItem.title = "TMBD Trending Movie of Week"
+        
+        
+    }
     
 
     func callRequest() {
@@ -51,20 +60,19 @@ class TrendingMovieViewController: UIViewController {
             case .success(let value):
                 let json = JSON(value)
                 let dataList = json["results"].arrayValue
-                
+
                 for data in dataList {
                     let id = data["id"].intValue
                     let title = data["title"].stringValue
                     let posterUrl = "https://www.themoviedb.org/t/p/w1280/" + data["poster_path"].stringValue
+                    let backgroundPosterUrl = "https://www.themoviedb.org/t/p/w1280/" + data["backdrop_path"].stringValue
                     let releaseDate = data["release_date"].stringValue
                     let rate = data["vote_average"].doubleValue
                     
-                    let movie = TrendingMovie(id: id, title: title, posterImageUrl: posterUrl, releaseDate: releaseDate, rate: rate)
+                    let movie = TrendingMovie(id: id, title: title, posterImageUrl: posterUrl, movieBackgroundPoster: backgroundPosterUrl, releaseDate: releaseDate, rate: rate)
                     
                     self.movieList.append(movie)
                 }
-                
-//                print(self.movieList)
                 self.trendingTableView.reloadData()
             case .failure(let error):
                 print(error)
@@ -84,6 +92,8 @@ extension TrendingMovieViewController: UITableViewDelegate {
         let vc = storyboard?.instantiateViewController(withIdentifier: "CreditViewController") as! CreditViewController
         
         vc.movieID = movieList[indexPath.row].id
+        vc.movieTitle = movieList[indexPath.row].title
+        vc.movieBackgroundPosterUrl = movieList[indexPath.row].movieBackgroundPoster
         
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -92,7 +102,6 @@ extension TrendingMovieViewController: UITableViewDelegate {
 
 extension TrendingMovieViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        print(movieList.count)
         return movieList.count
     }
 

@@ -8,15 +8,18 @@
 import UIKit
 import SwiftyJSON
 import Alamofire
+import Kingfisher
 
 class CreditViewController: UIViewController {
     
     var movieID: Int?
+    var movieTitle: String?
+    var movieBackgroundPosterUrl: String?
     var actorlist: [CreditData] = []
+    
     
     @IBOutlet var backgroundImage: UIImageView!
     @IBOutlet var movieTitleLabel: UILabel!
-    @IBOutlet var moviePosterImage: UIImageView!
     @IBOutlet var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -29,11 +32,35 @@ class CreditViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-
-       callRequest()
+        
+        uiConfigure()
+        showMovieData()
+        callRequest()
+    }
+    
+    func uiConfigure() {
+        
+        self.navigationController?.navigationBar.tintColor = .black
+        
+        movieTitleLabel.textAlignment = .center
+        movieTitleLabel.font = .systemFont(ofSize: 25)
+        
+        backgroundImage.contentMode = .scaleAspectFit
     }
 
-    //MARK: - 이거 호출 데이터 필터링하자
+    
+    func showMovieData() {
+        guard let title = movieTitle else { return }
+        
+        movieTitleLabel.text = title
+        
+        guard let backposter = movieBackgroundPosterUrl else { return }
+        guard let backgroundPosterUrl = URL(string: backposter) else { return }
+        backgroundImage.kf.setImage(with: backgroundPosterUrl)
+        
+        
+    }
+    
     func callRequest() {
         guard let id = movieID else { return }
         
@@ -45,13 +72,13 @@ class CreditViewController: UIViewController {
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-
+                
                 
                 let data = json["cast"].arrayValue
                 let actors = data.filter { $0["known_for_department"].stringValue == "Acting" }
                 
                 for person in actors {
-                
+                    
                     let name = person["name"].stringValue
                     let imageUrl = "https://www.themoviedb.org/t/p/w1280" + person["profile_path"].stringValue
                     let character = person["character"].stringValue
@@ -64,8 +91,6 @@ class CreditViewController: UIViewController {
                 print(error)
             }
         }
-        
-        
     }
     
 }

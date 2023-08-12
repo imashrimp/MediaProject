@@ -28,6 +28,7 @@ class TrendingTableViewCell: UITableViewCell {
         imageViewConfigure(imageView: posterImageView, contentMode: .scaleToFill)
         imageViewConfigure(imageView: detailImageView, contentMode: .scaleAspectFit)
         containerViewConfigure()
+        cellConfigure()
     }
     
     func labelConfigure(label: UILabel, textAlignment: NSTextAlignment, fontSize: CGFloat, fontWeight: UIFont.Weight) {
@@ -41,6 +42,10 @@ class TrendingTableViewCell: UITableViewCell {
     
     func containerViewConfigure() {
         containerView.backgroundColor = .clear
+    }
+    
+    func cellConfigure() {
+        self.selectionStyle = .none
     }
     
     func showCellContents(data: TrendingMovie) {

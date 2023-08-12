@@ -12,3 +12,5 @@ struct CreditData {
     var image: String
     var characterName: String
 }
+
+

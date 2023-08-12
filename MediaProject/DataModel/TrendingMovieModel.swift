@@ -11,6 +11,7 @@ struct TrendingMovie {
     var id: Int
     var title: String
     var posterImageUrl: String
+    var movieBackgroundPoster : String
     var releaseDate: String
     var rate: Double
 }
