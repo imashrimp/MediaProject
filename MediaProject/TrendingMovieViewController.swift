@@ -64,7 +64,7 @@ class TrendingMovieViewController: UIViewController {
                     self.movieList.append(movie)
                 }
                 
-                print(self.movieList)
+//                print(self.movieList)
                 self.trendingTableView.reloadData()
             case .failure(let error):
                 print(error)

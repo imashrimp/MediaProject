@@ -15,8 +15,46 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="461" height="230"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gOf-be-HKX">
+                        <rect key="frame" x="8" y="11" width="160" height="208"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="gOf-be-HKX" secondAttribute="height" multiplier="1:1.3" id="4dT-W4-cQs"/>
+                        </constraints>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Sso-oB-02V">
+                        <rect key="frame" x="176" y="90.666666666666671" width="277" height="48.666666666666671"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uxM-wk-xbI">
+                                <rect key="frame" x="0.0" y="0.0" width="277" height="20.333333333333332"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avz-08-eWc">
+                                <rect key="frame" x="0.0" y="28.333333333333329" width="277" height="20.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="gOf-be-HKX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="DK3-hH-g1x"/>
+                    <constraint firstItem="Sso-oB-02V" firstAttribute="leading" secondItem="gOf-be-HKX" secondAttribute="trailing" constant="8" id="G9a-73-aN1"/>
+                    <constraint firstItem="gOf-be-HKX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="IQh-qT-evr"/>
+                    <constraint firstAttribute="trailing" secondItem="Sso-oB-02V" secondAttribute="trailing" constant="8" id="ZuK-W9-Otv"/>
+                    <constraint firstAttribute="bottom" secondItem="gOf-be-HKX" secondAttribute="bottom" constant="11" id="kH6-3h-VHv"/>
+                    <constraint firstItem="Sso-oB-02V" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="swk-Uu-Pqa"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="actorImageView" destination="gOf-be-HKX" id="UP4-SM-wde"/>
+                <outlet property="characterLabel" destination="avz-08-eWc" id="TDu-jm-sws"/>
+                <outlet property="nameLabel" destination="uxM-wk-xbI" id="SwO-zi-Nz7"/>
+            </connections>
             <point key="canvasLocation" x="246.56488549618319" y="85.211267605633807"/>
         </tableViewCell>
     </objects>

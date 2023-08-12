@@ -93,6 +93,12 @@
                             <constraint firstItem="j1Z-tw-6lh" firstAttribute="leading" secondItem="Rbj-2h-M0Z" secondAttribute="leading" id="vR6-aX-xEd"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backgroundImage" destination="j1Z-tw-6lh" id="7f3-4v-AYQ"/>
+                        <outlet property="moviePosterImage" destination="Xds-pX-Q5R" id="Fva-Dw-i0S"/>
+                        <outlet property="movieTitleLabel" destination="V9v-aV-C6q" id="cUT-OP-iyt"/>
+                        <outlet property="tableView" destination="jMf-IO-6Z2" id="kzx-gP-xoy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Psd-j5-CpZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
