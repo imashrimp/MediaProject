@@ -10,21 +10,23 @@ import Alamofire
 import SwiftyJSON
 
 //MARK: - prefetch 또는 데이터 동기 비동기 처리 정하기, rowheight 'dispatchque.main.async'에서 처리, 리팩토링
+// 이스케이핑 클로저 공부하고 사용하기
 
 
 class TrendingMovieViewController: UIViewController {
     
-    var movieList: [TrendingMovie] = []
-
+    var movieList: [Result] = []
+    
     @IBOutlet var trendingTableView: UITableView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         let nib = UINib(nibName: "TrendingTableViewCell", bundle: nil)
         trendingTableView.register(nib, forCellReuseIdentifier: "TrendingTableViewCell")
         
+        //dispatchQueue.main.async해서 다시 적용시키기
         let cellHeight = UIScreen.main.bounds.height * 0.7
         
         trendingTableView.rowHeight = cellHeight
@@ -34,90 +36,57 @@ class TrendingMovieViewController: UIViewController {
         trendingTableView.dataSource = self
         
         configureSetNav()
+        netwokring()
         
-        callRequest()
     }
     
+    
+    func netwokring() {
+        TMDBAPIManager.shared.callRequest(type: .treding) { movie in
+            
+            print(movie)
+            self.movieList = movie.results
+
+            self.trendingTableView.reloadData()
+        }
+        
+    }
     
     func configureSetNav() {
-        
         self.navigationItem.title = "TMBD Trending Movie of Week"
-        
-        
     }
-    
-
-    func callRequest() {
-        let url = "https://api.themoviedb.org/3/trending/movie/day?language=en-US"
-        
-        let header: HTTPHeaders = [
-            "Authorization": APIKeys.token
-        ]
-        
-        
-        AF.request(url, method: .get, headers: header).validate().responseJSON { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                let dataList = json["results"].arrayValue
-
-                for data in dataList {
-                    let id = data["id"].intValue
-                    let title = data["title"].stringValue
-                    let posterUrl = "https://www.themoviedb.org/t/p/w1280/" + data["poster_path"].stringValue
-                    let backgroundPosterUrl = "https://www.themoviedb.org/t/p/w1280/" + data["backdrop_path"].stringValue
-                    let releaseDate = data["release_date"].stringValue
-                    let rate = data["vote_average"].doubleValue
-                    
-                    let movie = TrendingMovie(id: id, title: title, posterImageUrl: posterUrl, movieBackgroundPoster: backgroundPosterUrl, releaseDate: releaseDate, rate: rate)
-                    
-                    self.movieList.append(movie)
-                }
-                self.trendingTableView.reloadData()
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-
 }
 
 
 extension TrendingMovieViewController: UITableViewDelegate {
     
-    // 선택하면 데이터 넘기고 화면 전환
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        print("작동하나?")
-        let vc = storyboard?.instantiateViewController(withIdentifier: "CreditViewController") as! CreditViewController
-        
-        vc.movieID = movieList[indexPath.row].id
-        vc.movieTitle = movieList[indexPath.row].title
-        vc.movieBackgroundPosterUrl = movieList[indexPath.row].movieBackgroundPoster
-        
-        self.navigationController?.pushViewController(vc, animated: true)
+        //MARK: - dataSource 해결하고 여기
+//        let vc = storyboard?.instantiateViewController(withIdentifier: "CreditViewController") as! CreditViewController
+//
+//        vc.movieID = movieList[indexPath.row].id
+//        vc.movieTitle = movieList[indexPath.row].title
+//        vc.movieBackgroundPosterUrl = movieList[indexPath.row].movieBackgroundPoster
+//
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
-
+    
 }
 
 extension TrendingMovieViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
         return movieList.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "TrendingTableViewCell") as! TrendingTableViewCell
         
-        
-        cell.showCellContents(data: movieList[indexPath.row])
-        
+        cell.showCellContentsDecodable(movie: movieList[indexPath.row])
+                
         return cell
     }
 }
-
-//extension TrendingMovieViewController: UITableViewDataSourcePrefetching {
-//    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
-//        <#code#>
-//    }
-//}

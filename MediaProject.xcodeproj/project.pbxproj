@@ -26,6 +26,9 @@
 		17F932CA2A87188D000B2472 /* CreditDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F932C92A87188D000B2472 /* CreditDataModel.swift */; };
 		17F932CD2A871904000B2472 /* CreditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F932CB2A871904000B2472 /* CreditTableViewCell.swift */; };
 		17F932CE2A871904000B2472 /* CreditTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17F932CC2A871904000B2472 /* CreditTableViewCell.xib */; };
+		17F932D52A876848000B2472 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F932D42A876848000B2472 /* EndPoint.swift */; };
+		17F932D92A876AFF000B2472 /* TMDBAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F932D82A876AFF000B2472 /* TMDBAPIManager.swift */; };
+		17F932DB2A88745F000B2472 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F932DA2A88745F000B2472 /* URL.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +50,9 @@
 		17F932C92A87188D000B2472 /* CreditDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreditDataModel.swift; path = MediaProject/DataModel/CreditDataModel.swift; sourceTree = SOURCE_ROOT; };
 		17F932CB2A871904000B2472 /* CreditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditTableViewCell.swift; sourceTree = "<group>"; };
 		17F932CC2A871904000B2472 /* CreditTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreditTableViewCell.xib; sourceTree = "<group>"; };
+		17F932D42A876848000B2472 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		17F932D82A876AFF000B2472 /* TMDBAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBAPIManager.swift; sourceTree = "<group>"; };
+		17F932DA2A88745F000B2472 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +90,9 @@
 			isa = PBXGroup;
 			children = (
 				17F932CB2A871904000B2472 /* CreditTableViewCell.swift */,
+				17F932D42A876848000B2472 /* EndPoint.swift */,
+				17F932D82A876AFF000B2472 /* TMDBAPIManager.swift */,
+				17F932DA2A88745F000B2472 /* URL.swift */,
 				17F932CC2A871904000B2472 /* CreditTableViewCell.xib */,
 				17F932CF2A871E10000B2472 /* DataModel */,
 				17F9329A2A864904000B2472 /* AppDelegate.swift */,
@@ -200,9 +209,12 @@
 				17F932CD2A871904000B2472 /* CreditTableViewCell.swift in Sources */,
 				17F932C42A8665BF000B2472 /* APIKeys.swift in Sources */,
 				17F932CA2A87188D000B2472 /* CreditDataModel.swift in Sources */,
+				17F932DB2A88745F000B2472 /* URL.swift in Sources */,
 				17F9329F2A864904000B2472 /* ViewController.swift in Sources */,
+				17F932D52A876848000B2472 /* EndPoint.swift in Sources */,
 				17F9329B2A864904000B2472 /* AppDelegate.swift in Sources */,
 				17F932BC2A865FF6000B2472 /* TrendingMovieModel.swift in Sources */,
+				17F932D92A876AFF000B2472 /* TMDBAPIManager.swift in Sources */,
 				17F9329D2A864904000B2472 /* SceneDelegate.swift in Sources */,
 				17F932C82A866FB6000B2472 /* CreditViewController.swift in Sources */,
 			);

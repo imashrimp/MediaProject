@@ -48,11 +48,20 @@ class TrendingTableViewCell: UITableViewCell {
         self.selectionStyle = .none
     }
     
-    func showCellContents(data: TrendingMovie) {
-        releaseDateLabel.text = data.releaseDate
-        guard let imageUrl = URL(string: data.posterImageUrl) else { return }
+//    func showCellContents(data: TrendingMovie) {
+//        releaseDateLabel.text = data.releaseDate
+//        guard let imageUrl = URL(string: data.posterImageUrl) else { return }
+//        posterImageView.kf.setImage(with: imageUrl)
+//        titleLabel.text = data.title
+//        detailLabel.text = "자세히 보기"
+//        detailImageView.image = UIImage(systemName: "greaterthan")
+//    }
+    
+    func showCellContentsDecodable(movie: Result) {
+        releaseDateLabel.text = movie.releaseDate
+        guard let imageUrl = URL(string: "https://www.themoviedb.org/t/p/w1280" + movie.posterPath) else { return }
         posterImageView.kf.setImage(with: imageUrl)
-        titleLabel.text = data.title
+        titleLabel.text = movie.title
         detailLabel.text = "자세히 보기"
         detailImageView.image = UIImage(systemName: "greaterthan")
     }
