@@ -16,6 +16,7 @@ class CreditViewController: UIViewController {
     var movieTitle: String?
     var movieBackgroundPosterUrl: String?
     var actorlist: [CreditData] = []
+    var creditList: [Cast] = []
     
     
     @IBOutlet var backgroundImage: UIImageView!
@@ -25,7 +26,9 @@ class CreditViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         let nib = UINib(nibName: CreditTableViewCell.identifier, bundle: nil)
+        //identifier를 셀 이름으로 받을 수 잇도록 익스텐션에 연산프로퍼티 넣기
         tableView.register(nib, forCellReuseIdentifier: CreditTableViewCell.identifier)
         
         tableView.rowHeight = 100
@@ -34,8 +37,9 @@ class CreditViewController: UIViewController {
         tableView.dataSource = self
         
         uiConfigure()
+        
         showMovieData()
-        callRequest()
+        callCreditRequest()
     }
     
     func uiConfigure() {
@@ -55,44 +59,21 @@ class CreditViewController: UIViewController {
         movieTitleLabel.text = title
         
         guard let backposter = movieBackgroundPosterUrl else { return }
-        guard let backgroundPosterUrl = URL(string: backposter) else { return }
+        guard let backgroundPosterUrl = URL(string: "https://image.tmdb.org/t/p/w1280" + backposter) else { return }
         backgroundImage.kf.setImage(with: backgroundPosterUrl)
         
         
     }
     
-    func callRequest() {
+    func callCreditRequest() {
+        
         guard let id = movieID else { return }
         
-        let url = "https://api.themoviedb.org/3/movie/\(id)/credits"
-        
-        let header: HTTPHeaders = [ "Authorization" : APIKeys.token]
-        
-        AF.request(url, method: .get, headers: header).validate().responseJSON { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                
-                
-                let data = json["cast"].arrayValue
-                let actors = data.filter { $0["known_for_department"].stringValue == "Acting" }
-                
-                for person in actors {
-                    
-                    let name = person["name"].stringValue
-                    let imageUrl = "https://www.themoviedb.org/t/p/w1280" + person["profile_path"].stringValue
-                    let character = person["character"].stringValue
-                    
-                    let item = CreditData(name: name, image: imageUrl, characterName: character)
-                    self.actorlist.append(item)
-                }
-                self.tableView.reloadData()
-            case .failure(let error):
-                print(error)
-            }
+        TMDBAPIManager.shared.callCreditRequest(movieID: id) { credit in
+            self.creditList = credit.cast
+            self.tableView.reloadData()
         }
     }
-    
 }
 
 extension CreditViewController: UITableViewDelegate {
@@ -101,7 +82,7 @@ extension CreditViewController: UITableViewDelegate {
 
 extension CreditViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return actorlist.count
+        return creditList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -109,7 +90,7 @@ extension CreditViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: CreditTableViewCell.identifier) as! CreditTableViewCell
         
         
-        cell.showUIContents(data: actorlist[indexPath.row])
+        cell.showUIContents(data: creditList[indexPath.row])
         
         return cell
     }

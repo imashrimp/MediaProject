@@ -27,29 +27,28 @@ class TrendingMovieViewController: UIViewController {
         trendingTableView.register(nib, forCellReuseIdentifier: "TrendingTableViewCell")
         
         //dispatchQueue.main.async해서 다시 적용시키기
-        let cellHeight = UIScreen.main.bounds.height * 0.7
-        
-        trendingTableView.rowHeight = cellHeight
-        
-        
+        DispatchQueue.main.async {
+            let cellHeight = UIScreen.main.bounds.height * 0.7
+            
+            self.trendingTableView.rowHeight = cellHeight
+        }
+
         trendingTableView.delegate = self
         trendingTableView.dataSource = self
         
         configureSetNav()
-        netwokring()
+        callRequest()
         
     }
     
     
-    func netwokring() {
-        TMDBAPIManager.shared.callRequest(type: .treding) { movie in
+    func callRequest() {
+        TMDBAPIManager.shared.callTrendRequest(type: .treding) { movie in
             
-            print(movie)
             self.movieList = movie.results
 
             self.trendingTableView.reloadData()
         }
-        
     }
     
     func configureSetNav() {
@@ -63,13 +62,13 @@ extension TrendingMovieViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         //MARK: - dataSource 해결하고 여기
-//        let vc = storyboard?.instantiateViewController(withIdentifier: "CreditViewController") as! CreditViewController
-//
-//        vc.movieID = movieList[indexPath.row].id
-//        vc.movieTitle = movieList[indexPath.row].title
-//        vc.movieBackgroundPosterUrl = movieList[indexPath.row].movieBackgroundPoster
-//
-//        self.navigationController?.pushViewController(vc, animated: true)
+        let vc = storyboard?.instantiateViewController(withIdentifier: "CreditViewController") as! CreditViewController
+
+        vc.movieID = movieList[indexPath.row].id
+        vc.movieTitle = movieList[indexPath.row].title
+        vc.movieBackgroundPosterUrl = movieList[indexPath.row].backdropPath
+
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }

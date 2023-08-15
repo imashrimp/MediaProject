@@ -28,13 +28,13 @@ class CreditTableViewCell: UITableViewCell {
 
     }
     
-    func showUIContents(data: CreditData) {
-        guard let imageUrl = URL(string: data.image) else { return }
+    func showUIContents(data: Cast) {
         
-        
+        guard let profileUrl = data.profilePath, let imageUrl = URL(string: "https://image.tmdb.org/t/p/w1280" + profileUrl) else { return }
+    
         actorImageView.kf.setImage(with: imageUrl)
         nameLabel.text = data.name
-        characterLabel.text = data.characterName
+        characterLabel.text = data.character
     }
     
     func imageViewConfigure() {

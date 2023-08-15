@@ -38,6 +38,7 @@ class TrendingTableViewCell: UITableViewCell {
     
     func imageViewConfigure(imageView: UIImageView, contentMode: UIView.ContentMode) {
         imageView.contentMode = contentMode
+        imageView.tintColor = .black
     }
     
     func containerViewConfigure() {
@@ -47,15 +48,6 @@ class TrendingTableViewCell: UITableViewCell {
     func cellConfigure() {
         self.selectionStyle = .none
     }
-    
-//    func showCellContents(data: TrendingMovie) {
-//        releaseDateLabel.text = data.releaseDate
-//        guard let imageUrl = URL(string: data.posterImageUrl) else { return }
-//        posterImageView.kf.setImage(with: imageUrl)
-//        titleLabel.text = data.title
-//        detailLabel.text = "자세히 보기"
-//        detailImageView.image = UIImage(systemName: "greaterthan")
-//    }
     
     func showCellContentsDecodable(movie: Result) {
         releaseDateLabel.text = movie.releaseDate

@@ -17,28 +17,8 @@ class TMDBAPIManager {
     
     private init() { }
     
-    //    func callRequest(type: EndPoint, completionHandler: @escaping (JSON) -> () ) {
-    //
-    //        let url = type.url
-    //
-    //        AF.request(url, method: .get, headers: header).validate()
-    //            .responseJSON { response in
-    //            switch response.result {
-    //            case .success(let value):
-    //                let json = JSON(value)
-    //
-    //                completionHandler(json)
-    //
-    //
-    //            case .failure(let error):
-    //                print(error)
-    //            }
-    //        }
-    //
-    //    }
-    
     //MARK: - 상태코드 처리 추가하기
-    func callRequest(type: EndPoint, completinHandler: @escaping (TMDB) -> () ) {
+    func callTrendRequest(type: EndPoint, completinHandler: @escaping (TMDB) -> () ) {
         
         let url = type.url
         let decoder = JSONDecoder()
@@ -49,6 +29,17 @@ class TMDBAPIManager {
                 
                 guard let movie = response.value else { return }
                 completinHandler(movie)
+            }
+    }
+    
+    func callCreditRequest(movieID: Int, completionHandler: @escaping (Credit) -> () ) {
+        
+        let url = "https://api.themoviedb.org/3/movie/\(movieID)/credits"
+        
+        AF.request(url, method: .get, headers: header).validate()
+            .responseDecodable(of: Credit.self) { response in
+                guard let credit = response.value else { return }
+                completionHandler(credit)
             }
     }
 }
