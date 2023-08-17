@@ -9,8 +9,7 @@ import UIKit
 import Kingfisher
 
 class TrendingTableViewCell: UITableViewCell {
-    
-    static let identifier = "TrendingTableViewCell"
+
 
     @IBOutlet var releaseDateLabel: UILabel!
     @IBOutlet var containerView: UIView!
@@ -59,3 +58,5 @@ class TrendingTableViewCell: UITableViewCell {
     }
     
 }
+
+

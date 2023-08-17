@@ -11,9 +11,6 @@ import Kingfisher
 
 class CreditTableViewCell: UITableViewCell {
     
-    static let identifier = "CreditTableViewCell"
-
-    
     @IBOutlet var actorImageView: UIImageView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var characterLabel: UILabel!
