@@ -7,7 +7,7 @@
 
 import Foundation
 import Alamofire
-//import SwiftyJSON
+import SwiftyJSON
 
 class TMDBAPIManager {
     
@@ -43,31 +43,36 @@ class TMDBAPIManager {
             }
     }
     
+    
+    
+    //MARK: - 도전과제
     func callWholeSeasonRequest(seriesID: Int, completionHandler: @escaping (WholeSeason) -> Void) {
         
-        let url = "https://api.themoviedb.org/3/tv/\(seriesID)?api_key=\(APIKeys.key)&language=en-US&append_to_response=episode_groups"
+        var components = URLComponents(string: "https://api.themoviedb.org/3/tv/\(seriesID)")
+        let apiKey = URLQueryItem(name: "api_key", value: APIKeys.key)
+        let language = URLQueryItem(name: "language", value: "en-US")
+        let apiCategory = URLQueryItem(name: "append_to_response", value: "episode_groups")
+        
+        components?.queryItems = [apiKey, language, apiCategory]
+        
+        guard let url = components?.url else { return }
         
         AF.request(url, method: .get).validate()
             .responseDecodable(of: WholeSeason.self) { response in
                 guard let series = response.value else { return }
-                print("===============================")
-                dump(series)
                 completionHandler(series)
             }
     }
     
-    func callWholeEpisodeRequest(seriesID: Int, seasonNm: Int, completionHandler: @escaping (Episodes) -> Void) {
+    func callWholeEpisodeRequest(seriesID: Int, seasonNm: Int, completionHandler: @escaping (IDK) -> Void) {
         
-        let url = "https://api.themoviedb.org/3/tv/\(seriesID)/season/\(seasonNm)?language=en-US"
                 
+        let url = "https://api.themoviedb.org/3/tv/\(seriesID)/season/\(seasonNm)?language=en-US"
+        
+        
         AF.request(url, method: .get, headers: header).validate()
-            .responseDecodable(of: Episodes.self) { response in
-                print(response)
-                guard let episode = response.value else {
-                    
-                    return }
-                print("********************************")
-                print(episode)
+            .responseDecodable(of: IDK.self) { response in
+                guard let episode = response.value else { return }
                 completionHandler(episode)
             }
     }

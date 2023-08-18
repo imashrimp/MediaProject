@@ -8,12 +8,10 @@
 import UIKit
 
 class TVSeriesViewController: UIViewController {
-
-    var seriesInfo: WholeSeason = WholeSeason(genres: [], id: 0, name: "", numberOfEpisodes: 0, numberOfSeasons: 0, seasons: [])
-    var episodesArray: [Episodes] = []
     
-    let dispatchGroup1 = DispatchGroup()
-    let dispatchGroup2 = DispatchGroup()
+    var seriesInfo: WholeSeason = WholeSeason(genres: [], id: 0, name: "", numberOfEpisodes: 0, numberOfSeasons: 0, seasons: [])
+    var episodesArray: [IDK] = []
+    
     let firstQueue = DispatchQueue(label: "firstQueue")
     let secondQueue = DispatchQueue(label: "secondQueue")
     
@@ -22,62 +20,46 @@ class TVSeriesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        TMDBAPIManager.shared.callWholeEpisodeRequest(seriesID: 1396, seasonNm: 1) { test in
-            print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
-            print(test)
-            
-            
+        configureCollectionView()
+        configureCollectionViewLayout()
+        
+        let chulsooGroup = DispatchGroup()
+        let yeongheeGroup = DispatchGroup()
+        
+        chulsooGroup.enter()
+        print("철수: 일 시작")
+        TMDBAPIManager.shared.callWholeSeasonRequest(seriesID: 1395) { series in
+            self.seriesInfo = series
+            print("철수: 일 끝남")
+            chulsooGroup.leave()
         }
         
-//        DispatchQueue.main.async {
-//            let waitGroup = DispatchGroup()
-//            waitGroup.enter()
-//            TMDBAPIManager.shared.callWholeSeasonRequest(seriesID: 1396) { series in
-//                self.seriesInfo = series
-//                waitGroup.leave()
-//            }
-//            waitGroup.notify(queue: DispatchQueue.main) {
-//                for i in 0...self.seriesInfo.numberOfSeasons {
-//                    TMDBAPIManager.shared.callWholeEpisodeRequest(seriesID: self.seriesInfo.id, seasonNm: i) { episodes in
-//                        print("&&&&&&&&&&&&&&&&&&&&&&&&")
-//                        print(episodes)
-//                        self.episodesArray.append(episodes)
-//                    }
-//                }
-//            }
-//            self.tvSeriesCollectionView.reloadData()
-//        }
+//MARK: - 리로드 타이밍 잡으려면 영희 디스패치 그룹 써야하는데 어디서 써야함?
         
-        //시리즈 api데이터를 응답받고 이를 프로퍼티에 할당하는 전체를 하나의 task로 보자
-        
-//        firstQueue.async(group: dispatchGroup1) {
-//            //브레이킹 배드 1396
-//            TMDBAPIManager.shared.callWholeSeasonRequest(seriesID: 1396) { series in
-//                self.seriesInfo = series
-////                self.tvSeriesCollectionView.reloadData()
-//            }
-//        }
-//
-//        dispatchGroup1.notify(queue: firstQueue) {
-//
-//            self.secondQueue.async(group: self.dispatchGroup2) {
-//                for i in 0...self.seriesInfo.numberOfSeasons {
-//                    TMDBAPIManager.shared.callWholeEpisodeRequest(seriesID: self.seriesInfo.id, seasonNm: i) { episodes in
-//                        self.episodesArray.append(episodes)
-//                    }
+        chulsooGroup.notify(queue: .main) {
+            print("감독: 철수 일 다 끝났답니다")
+            for i in 0..<self.seriesInfo.numberOfSeasons {
+//                yeongheeGroup.enter()
+                print("영희: 일 시작")
+                TMDBAPIManager.shared.callWholeEpisodeRequest(seriesID: self.seriesInfo.id, seasonNm: i) { episodes in
+                    self.episodesArray.append(episodes)
+                    print("=======================")
+                    print(self.episodesArray)
+                    print("영희: 일 끝남")
+//                    yeongheeGroup.leave()
+                }
+//                yeongheeGroup.notify(queue: .main) {
+//                    print("감독: 영희 일 끝났답니다.")
+//                    //MARK: - 컬렉션 뷰가 리로드가 되면 맞는거임.
+//                    self.tvSeriesCollectionView.reloadData()
 //                }
-//            }
-//        }
-//
-//        dispatchGroup2.notify(queue: secondQueue) {
-//            self.tvSeriesCollectionView.reloadData()
-//        }
+            }
+            
+        }
     }
+//    func callBackNetworking()
 }
 
-//func workItem() {
-//    let seasonItem =
-//}
 
 extension TVSeriesViewController: UICollectionViewDelegate {
     
@@ -91,13 +73,13 @@ extension TVSeriesViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //여기서는 시즌이랑 에피소드 숫자랑 매칭을 해서 조건문에 맞춰 셀 수를 뱉어내자
-
+        
         //섹션이 시즌의 수 만큼 있음. 섹션의 번호에 +1을 하면, 섹션의
         var cnt = 0
         for i in 0..<episodesArray.count {
             if section == i {
-                cnt = episodesArray[i].episodes[i].episodeNumber
-                return cnt
+                cnt = episodesArray[i].episodes.count
+                print(cnt)
             }
         }
         return cnt
@@ -110,8 +92,6 @@ extension TVSeriesViewController: UICollectionViewDataSource {
         
         return cell
     }
-    
-    
 }
 
 extension TVSeriesViewController: CollectionViewAttributeProtocol {
