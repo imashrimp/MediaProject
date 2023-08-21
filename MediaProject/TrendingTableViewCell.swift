@@ -23,8 +23,8 @@ class TrendingTableViewCell: UITableViewCell {
         super.awakeFromNib()
         labelConfigure(label: releaseDateLabel, textAlignment: .left, fontSize: 13, fontWeight: .regular)
         labelConfigure(label: titleLabel, textAlignment: .left, fontSize: 15, fontWeight: .bold)
-        labelConfigure(label: originalTitleLabel, textAlignment: .left, fontSize: 13, fontWeight: .regular)
-        labelConfigure(label: detailLabel, textAlignment: .right, fontSize: 13, fontWeight: .regular)
+        labelConfigure(label: originalTitleLabel, textAlignment: .right, fontSize: 13, fontWeight: .regular)
+        labelConfigure(label: detailLabel, textAlignment: .left, fontSize: 13, fontWeight: .regular)
         
         imageViewConfigure(imageView: posterImageView, contentMode: .scaleToFill)
         imageViewConfigure(imageView: detailImageView, contentMode: .scaleAspectFit)
