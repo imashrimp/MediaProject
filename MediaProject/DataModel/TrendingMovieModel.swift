@@ -27,6 +27,7 @@ struct Result: Codable {
     let id: Int
     let title: String
     //posterPath를 그대로 쓰면 url로 타입캐스팅을 해도 무용지물임. 그러므로 여기서 값을 추가해줘야함
+    let originalTitle: String
     let overview, posterPath: String
     let genreIds: [Int]
     let releaseDate: String

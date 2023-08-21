@@ -30,7 +30,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="471" height="190.66666666666666"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r3b-IF-HZZ">
-                                <rect key="frame" x="8" y="198.66666666666666" width="455" height="21"/>
+                                <rect key="frame" x="8" y="198.66666666666666" width="409" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -41,26 +41,35 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WeT-ws-3rX">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="WeT-ws-3rX">
                                 <rect key="frame" x="446.66666666666669" y="227.66666666666669" width="16.333333333333314" height="16.333333333333343"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="WeT-ws-3rX" secondAttribute="height" multiplier="1:1" id="TfC-ZR-wG2"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4xq-uB-Opb">
+                                <rect key="frame" x="421" y="198.66666666666666" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="4xq-uB-Opb" secondAttribute="trailing" constant="8" id="4NE-2F-1Ug"/>
                             <constraint firstAttribute="trailing" secondItem="WeT-ws-3rX" secondAttribute="trailing" constant="8" id="6lG-vX-WKU"/>
                             <constraint firstAttribute="bottom" secondItem="BzY-Mf-8g7" secondAttribute="bottom" constant="11" id="9Rd-2l-Jtd"/>
+                            <constraint firstItem="4xq-uB-Opb" firstAttribute="top" secondItem="r3b-IF-HZZ" secondAttribute="top" id="EiM-Ep-eap"/>
                             <constraint firstItem="r3b-IF-HZZ" firstAttribute="top" secondItem="Lp6-sQ-Xyn" secondAttribute="bottom" constant="8" id="Fry-ai-eYb"/>
                             <constraint firstAttribute="bottom" secondItem="WeT-ws-3rX" secondAttribute="bottom" constant="11" id="LSp-u2-g8t"/>
+                            <constraint firstItem="4xq-uB-Opb" firstAttribute="bottom" secondItem="r3b-IF-HZZ" secondAttribute="bottom" id="QXB-gE-uWt"/>
                             <constraint firstItem="WeT-ws-3rX" firstAttribute="top" secondItem="r3b-IF-HZZ" secondAttribute="bottom" constant="8" id="R2P-gc-67J"/>
                             <constraint firstItem="Lp6-sQ-Xyn" firstAttribute="leading" secondItem="WgC-dg-3Bp" secondAttribute="leading" id="VK6-Jq-Bbc"/>
                             <constraint firstItem="BzY-Mf-8g7" firstAttribute="leading" secondItem="WgC-dg-3Bp" secondAttribute="leading" constant="8" id="WYQ-RD-eEr"/>
                             <constraint firstItem="WeT-ws-3rX" firstAttribute="leading" secondItem="BzY-Mf-8g7" secondAttribute="trailing" constant="8" id="WZ7-jv-1r4"/>
                             <constraint firstItem="BzY-Mf-8g7" firstAttribute="top" secondItem="r3b-IF-HZZ" secondAttribute="bottom" constant="4" id="dIt-fi-F1D"/>
                             <constraint firstAttribute="trailing" secondItem="Lp6-sQ-Xyn" secondAttribute="trailing" id="e5o-7M-Vaw"/>
-                            <constraint firstAttribute="trailing" secondItem="r3b-IF-HZZ" secondAttribute="trailing" constant="8" id="qRy-lQ-Lgv"/>
+                            <constraint firstItem="4xq-uB-Opb" firstAttribute="leading" secondItem="r3b-IF-HZZ" secondAttribute="trailing" constant="4" id="fGn-C3-KcS"/>
                             <constraint firstItem="r3b-IF-HZZ" firstAttribute="leading" secondItem="WgC-dg-3Bp" secondAttribute="leading" constant="8" id="uIa-jh-3ZW"/>
                             <constraint firstItem="Lp6-sQ-Xyn" firstAttribute="top" secondItem="WgC-dg-3Bp" secondAttribute="top" id="xWS-9M-dPb"/>
                         </constraints>
@@ -81,6 +90,7 @@
                 <outlet property="containerView" destination="WgC-dg-3Bp" id="vDF-ul-v1D"/>
                 <outlet property="detailImageView" destination="WeT-ws-3rX" id="L4T-Cq-ZAh"/>
                 <outlet property="detailLabel" destination="BzY-Mf-8g7" id="Jym-Zb-dmd"/>
+                <outlet property="originalTitleLabel" destination="4xq-uB-Opb" id="cca-tm-wTH"/>
                 <outlet property="posterImageView" destination="Lp6-sQ-Xyn" id="AS4-y0-Zpj"/>
                 <outlet property="releaseDateLabel" destination="IyO-dl-h4x" id="wbk-22-8rE"/>
                 <outlet property="titleLabel" destination="r3b-IF-HZZ" id="jh5-aX-9vw"/>

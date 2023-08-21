@@ -15,6 +15,7 @@ class TrendingTableViewCell: UITableViewCell {
     @IBOutlet var containerView: UIView!
     @IBOutlet var posterImageView: UIImageView!
     @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var originalTitleLabel: UILabel!
     @IBOutlet var detailLabel: UILabel!
     @IBOutlet var detailImageView: UIImageView!
     
@@ -22,7 +23,8 @@ class TrendingTableViewCell: UITableViewCell {
         super.awakeFromNib()
         labelConfigure(label: releaseDateLabel, textAlignment: .left, fontSize: 13, fontWeight: .regular)
         labelConfigure(label: titleLabel, textAlignment: .left, fontSize: 15, fontWeight: .bold)
-        labelConfigure(label: detailLabel, textAlignment: .left, fontSize: 13, fontWeight: .regular)
+        labelConfigure(label: originalTitleLabel, textAlignment: .left, fontSize: 13, fontWeight: .regular)
+        labelConfigure(label: detailLabel, textAlignment: .right, fontSize: 13, fontWeight: .regular)
         
         imageViewConfigure(imageView: posterImageView, contentMode: .scaleToFill)
         imageViewConfigure(imageView: detailImageView, contentMode: .scaleAspectFit)
@@ -53,6 +55,7 @@ class TrendingTableViewCell: UITableViewCell {
         guard let imageUrl = URL(string: "https://www.themoviedb.org/t/p/w1280" + movie.posterPath) else { return }
         posterImageView.kf.setImage(with: imageUrl)
         titleLabel.text = movie.title
+        originalTitleLabel.text = movie.originalTitle
         detailLabel.text = "자세히 보기"
         detailImageView.image = UIImage(systemName: "greaterthan")
     }
