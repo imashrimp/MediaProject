@@ -37,7 +37,7 @@ class TVSeriesViewController: UIViewController {
         chulsooGroup.notify(queue: .global()) {
             print(self.seriesInfo.numberOfSeasons)
             
-            for i in 0..<self.seriesInfo.numberOfSeasons {
+            for i in 1...self.seriesInfo.numberOfSeasons {
                 yeongheeGroup.enter()
                 TMDBAPIManager.shared.callWholeEpisodeRequest(seriesID: self.seriesInfo.id, seasonNm: i) { episodes in
                     self.episodesArray.append(episodes)
@@ -46,7 +46,7 @@ class TVSeriesViewController: UIViewController {
             }
             
             yeongheeGroup.notify(queue: .main) {
-//                self.tvSeriesCollectionView.reloadData()
+                self.tvSeriesCollectionView.reloadData()
             }
         }
     }
@@ -70,7 +70,7 @@ extension TVSeriesViewController: UICollectionViewDataSource {
         var cnt = 0
         for i in 0..<episodesArray.count {
             if section == i {
-                cnt = episodesArray[i].episodes.count
+                cnt = episodesArray[i].episodes.count //episodesArray 배열에 들어가있는 내부 배열의 index에 따라
             }
         }
         return cnt
@@ -79,11 +79,13 @@ extension TVSeriesViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EpisodesCollectionViewCell.identifier, for: indexPath) as? EpisodesCollectionViewCell else { return EpisodesCollectionViewCell() }
-  
-        //MARK: - 셀의 아이템을 섹션별로 표시할 수 있게 조건문 설정해야함.
-
-//        cell.showContents(data: )
         
+        //MARK: - 셀의 아이템을 섹션별로 표시할 수 있게 조건문 설정해야함.
+        for i in 0..<seriesInfo.numberOfSeasons {
+            if indexPath.section == i {
+                cell.showContents(data: episodesArray[i].episodes[indexPath.row])
+            }
+        }
         return cell
     }
 }
