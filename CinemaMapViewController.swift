@@ -14,7 +14,6 @@ import SnapKit
 class CinemaMapViewController: UIViewController {
     
     let locationManager = CLLocationManager()
-    
     let mapView = MKMapView()
     
     let filterButton = {
@@ -32,7 +31,6 @@ class CinemaMapViewController: UIViewController {
         button.backgroundColor = .white
         button.setImage(image, for: .normal)
         button.contentMode = .scaleAspectFit
-        //        button.tintColor = .
         button.layer.cornerRadius = 20;
         
         return button
@@ -61,95 +59,29 @@ class CinemaMapViewController: UIViewController {
     
     //MARK: - 매개변수 사용해서 분기처리하기
     func setAnnotation(id: CinemaType) {
-        
-        let cinemaList = TheaterList().mapAnnotations
-        var annotationList: [MKPointAnnotation] = []
         mapView.removeAnnotations(mapView.annotations)
         
-        if id == .lotte {
-            for cinema in cinemaList {
-                if cinema.type == id {
-                    let annotation = MKPointAnnotation()
-                    annotation.title = cinema.location
-                    annotation.coordinate = CLLocationCoordinate2D(latitude: cinema.latitude, longitude: cinema.longitude)
-                    annotationList.append(annotation)
-                }
-            }
-        } else if id == .cgv {
-            for cinema in cinemaList {
-                if cinema.type == id {
-                    let annotation = MKPointAnnotation()
-                    annotation.title = cinema.location
-                    annotation.coordinate = CLLocationCoordinate2D(latitude: cinema.latitude, longitude: cinema.longitude)
-                    annotationList.append(annotation)
-                }
-            }
-        } else if id == .megabox {
-            for cinema in cinemaList {
-                if cinema.type == id {
-                    let annotation = MKPointAnnotation()
-                    annotation.title = cinema.location
-                    annotation.coordinate = CLLocationCoordinate2D(latitude: cinema.latitude, longitude: cinema.longitude)
-                    annotationList.append(annotation)
-                }
-            }
-        } else {
-            for cinema in cinemaList {
-                let annotation = MKPointAnnotation()
-                annotation.title = cinema.location
-                annotation.coordinate = CLLocationCoordinate2D(latitude: cinema.latitude, longitude: cinema.longitude)
-                annotationList.append(annotation)
-            }
-        }
+        let annotationList = filteringCinemaTapped(id: id)
+        
         mapView.addAnnotations(annotationList)
     }
     
-    //MARK: - 권한 있을 때랑 없을 때랑 다르게 분기처리를 해보자
+
     @objc func locationButtonTapped() {
-        let alert = UIAlertController(title: "위치정보 이용", message: "위치 서비스를 사용할 수 없습니다. 기기의 '설정>개인정보보호'에서 위치 서비스를 켜주세요.", preferredStyle: .alert)
-        
-        let goSetting = UIAlertAction(title: "설정으로 이동", style: .default) { _ in
-            
-            guard let appSetting = URL(string: UIApplication.openSettingsURLString) else {
-                print("설정 URL 잘 못 가져왔음.")
-                return
-            }
-        }
-        let cancel = UIAlertAction(title: "취소", style: .cancel)
-        
-        alert.addAction(goSetting)
-        alert.addAction(cancel)
-        
-        present(alert, animated: true)
+        locationAuthorizeAlert()
     }
     
     @objc func filterButtonTapped() {
-        print("필터링 할 액션시트 나와라")
         
-        let filterActionsheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        
-        
-        let lotteCinema = UIAlertAction(title: "롯데시네마", style: .default) {_ in
+        filteringActionSheet { _ in
             self.setAnnotation(id: .lotte)
-        }
-        let cgv = UIAlertAction(title: "CGV", style: .default) {_ in
+        } cgv: { _ in
             self.setAnnotation(id: .cgv)
-        }
-        let megaBox = UIAlertAction(title: "메가박스", style: .default) {_ in
+        } megaBox: { _ in
             self.setAnnotation(id: .megabox)
-        }
-        let showAll = UIAlertAction(title: "전체보기", style: .default) {_ in
+        } all: { _ in
             self.setAnnotation(id: .all)
         }
-        let cancel = UIAlertAction(title: "취소", style: .cancel)
-        
-        filterActionsheet.addAction(lotteCinema)
-        filterActionsheet.addAction(cgv)
-        filterActionsheet.addAction(megaBox)
-        filterActionsheet.addAction(showAll)
-        filterActionsheet.addAction(cancel)
-        
-        present(filterActionsheet, animated: true)
     }
     
     func makeConstraints() {

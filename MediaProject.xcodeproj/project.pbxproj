@@ -12,6 +12,8 @@
 		17C402A22A95DA1600265007 /* CinemaMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C402A12A95DA1600265007 /* CinemaMapViewController.swift */; };
 		17C402A42A960F9700265007 /* CinemaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C402A32A960F9700265007 /* CinemaModel.swift */; };
 		17C402A62A961AE500265007 /* FilteringID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C402A52A961AE500265007 /* FilteringID.swift */; };
+		17C402A82A9622C800265007 /* AlertExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C402A72A9622C800265007 /* AlertExtension.swift */; };
+		17C402AA2A96269800265007 /* FiletringCinemaExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C402A92A96269800265007 /* FiletringCinemaExtension.swift */; };
 		17F9329B2A864904000B2472 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F9329A2A864904000B2472 /* AppDelegate.swift */; };
 		17F9329D2A864904000B2472 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F9329C2A864904000B2472 /* SceneDelegate.swift */; };
 		17F9329F2A864904000B2472 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F9329E2A864904000B2472 /* ViewController.swift */; };
@@ -50,6 +52,8 @@
 		17C402A12A95DA1600265007 /* CinemaMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaMapViewController.swift; sourceTree = SOURCE_ROOT; };
 		17C402A32A960F9700265007 /* CinemaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaModel.swift; sourceTree = "<group>"; };
 		17C402A52A961AE500265007 /* FilteringID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteringID.swift; sourceTree = "<group>"; };
+		17C402A72A9622C800265007 /* AlertExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertExtension.swift; sourceTree = "<group>"; };
+		17C402A92A96269800265007 /* FiletringCinemaExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiletringCinemaExtension.swift; sourceTree = SOURCE_ROOT; };
 		17F932972A864904000B2472 /* MediaProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17F9329A2A864904000B2472 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17F9329C2A864904000B2472 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,10 +104,12 @@
 		17C4029B2A95D7E800265007 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				17C402A92A96269800265007 /* FiletringCinemaExtension.swift */,
 				17C402A12A95DA1600265007 /* CinemaMapViewController.swift */,
 				17C4029C2A95D80100265007 /* CinemaMainViewController.swift */,
 				17C402A32A960F9700265007 /* CinemaModel.swift */,
 				17C402A52A961AE500265007 /* FilteringID.swift */,
+				17C402A72A9622C800265007 /* AlertExtension.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -275,6 +281,7 @@
 				17FF142B2A8E1D0900E56701 /* URL.swift in Sources */,
 				17F932CA2A87188D000B2472 /* CreditDataModel.swift in Sources */,
 				17F9329F2A864904000B2472 /* ViewController.swift in Sources */,
+				17C402A82A9622C800265007 /* AlertExtension.swift in Sources */,
 				17FF143B2A8E3EA100E56701 /* CollectionViewAttributesProtocol.swift in Sources */,
 				17F932D52A876848000B2472 /* EndPoint.swift in Sources */,
 				17F9329B2A864904000B2472 /* AppDelegate.swift in Sources */,
@@ -285,6 +292,7 @@
 				17F932D92A876AFF000B2472 /* TMDBAPIManager.swift in Sources */,
 				17F9329D2A864904000B2472 /* SceneDelegate.swift in Sources */,
 				17C402A22A95DA1600265007 /* CinemaMapViewController.swift in Sources */,
+				17C402AA2A96269800265007 /* FiletringCinemaExtension.swift in Sources */,
 				17FF14352A8E3CE500E56701 /* TVSeriesViewController.swift in Sources */,
 				17FF142F2A8E2E8A00E56701 /* TVSeriesWholeSeason.swift in Sources */,
 				17C402A42A960F9700265007 /* CinemaModel.swift in Sources */,
