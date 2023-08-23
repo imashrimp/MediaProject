@@ -27,37 +27,31 @@ class TVSeriesViewController: UIViewController {
         let yeongheeGroup = DispatchGroup()
         
         chulsooGroup.enter()
-        print("철수: 일 시작")
         TMDBAPIManager.shared.callWholeSeasonRequest(seriesID: 1395) { series in
             self.seriesInfo = series
-            print("철수: 일 끝남")
+            print(self.seriesInfo.numberOfSeasons)
             chulsooGroup.leave()
         }
         
-//MARK: - 리로드 타이밍 잡으려면 영희 디스패치 그룹 써야하는데 어디서 써야함?
         
-        chulsooGroup.notify(queue: .main) {
-            print("감독: 철수 일 다 끝났답니다")
+        chulsooGroup.notify(queue: .global()) {
+            print(self.seriesInfo.numberOfSeasons)
+            
             for i in 0..<self.seriesInfo.numberOfSeasons {
-//                yeongheeGroup.enter()
-                print("영희: 일 시작")
+                yeongheeGroup.enter()
+                //MARK: - notify위치 확인하기 / for문 호출 범위 0, 1확인하기
+                
                 TMDBAPIManager.shared.callWholeEpisodeRequest(seriesID: self.seriesInfo.id, seasonNm: i) { episodes in
                     self.episodesArray.append(episodes)
-                    print("=======================")
-                    print(self.episodesArray)
-                    print("영희: 일 끝남")
-//                    yeongheeGroup.leave()
+                    yeongheeGroup.leave()
                 }
-//                yeongheeGroup.notify(queue: .main) {
-//                    print("감독: 영희 일 끝났답니다.")
-//                    //MARK: - 컬렉션 뷰가 리로드가 되면 맞는거임.
-//                    self.tvSeriesCollectionView.reloadData()
-//                }
             }
             
+            yeongheeGroup.notify(queue: .main) {
+//                self.tvSeriesCollectionView.reloadData()
+            }
         }
     }
-//    func callBackNetworking()
 }
 
 
@@ -79,16 +73,18 @@ extension TVSeriesViewController: UICollectionViewDataSource {
         for i in 0..<episodesArray.count {
             if section == i {
                 cnt = episodesArray[i].episodes.count
-                print(cnt)
             }
         }
         return cnt
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EpisodesCollectionViewCell.identifier, for: indexPath) as? EpisodesCollectionViewCell else { return EpisodesCollectionViewCell() }
-        
-        
+  
+        //MARK: - 셀의 아이템을 섹션별로 표시할 수 있게 조건문 설정해야함.
+
+//        cell.showContents(data: )
         
         return cell
     }

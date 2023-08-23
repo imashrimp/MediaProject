@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class EpisodesCollectionViewCell: UICollectionViewCell {
 
@@ -15,8 +16,15 @@ class EpisodesCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        imageView.contentMode = .scaleAspectFit
+        
         episodeNumberLabel.font = .systemFont(ofSize: 13)
         episodeNumberLabel.textAlignment = .left
+    }
+    
+    func showContents(data: Episode) {
+//        imageView.image =
+        episodeNumberLabel.text = "\(data.episodeNumber)"
     }
 
 }

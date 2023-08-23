@@ -64,12 +64,13 @@ class TMDBAPIManager {
             }
     }
     
-    func callWholeEpisodeRequest(seriesID: Int, seasonNm: Int, completionHandler: @escaping (IDK) -> Void) {
+    func callWholeEpisodeRequest(seriesID: Int, seasonNm: Int, completionHandler: @escaping (IDK) -> ()) {
                 
         let url = "https://api.themoviedb.org/3/tv/\(seriesID)/season/\(seasonNm)?language=en-US"
         
         AF.request(url, method: .get, headers: header).validate()
             .responseDecodable(of: IDK.self) { response in
+                //MARK: - 에러 핸들링 해보자
                 guard let episode = response.value else { return }
                 completionHandler(episode)
             }
