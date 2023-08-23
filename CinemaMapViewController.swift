@@ -103,9 +103,11 @@ extension CinemaMapViewController {
                 
                 if #available(iOS 14.0, *) {
                     authorization = self.locationManager.authorizationStatus
+                    print("======", authorization.rawValue)
                 } else {
                     //MARK: - 14.0 아래의 버전에서는 무슨 권한의 어떤 상태를 가져온다는 거지?
                     authorization = CLLocationManager.authorizationStatus()
+                    print("%%%%%%%%%", authorization.rawValue)
                 }
                 DispatchQueue.main.async {
                     self.checkCurrentLocationAuthorization(status: authorization)

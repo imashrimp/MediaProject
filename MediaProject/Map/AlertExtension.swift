@@ -8,9 +8,7 @@
 import UIKit
 
 extension UIViewController {
-    
-    //MARK: - 권한 있을 때랑 없을 때랑 다르게 분기처리를 해보자
-    //그리고 새싹 영등포 어노테이션 추가되도록
+
     func locationAuthorizeAlert() {
         let alert = UIAlertController(title: "위치정보 이용", message: "위치 서비스를 사용할 수 없습니다. 기기의 '설정>개인정보보호'에서 위치 서비스를 켜주세요.", preferredStyle: .alert)
 

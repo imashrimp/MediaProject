@@ -39,8 +39,6 @@ class TVSeriesViewController: UIViewController {
             
             for i in 0..<self.seriesInfo.numberOfSeasons {
                 yeongheeGroup.enter()
-                //MARK: - notify위치 확인하기 / for문 호출 범위 0, 1확인하기
-                
                 TMDBAPIManager.shared.callWholeEpisodeRequest(seriesID: self.seriesInfo.id, seasonNm: i) { episodes in
                     self.episodesArray.append(episodes)
                     yeongheeGroup.leave()

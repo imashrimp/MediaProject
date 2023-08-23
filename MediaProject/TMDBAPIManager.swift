@@ -70,9 +70,13 @@ class TMDBAPIManager {
         
         AF.request(url, method: .get, headers: header).validate()
             .responseDecodable(of: IDK.self) { response in
-                //MARK: - 에러 핸들링 해보자
-                guard let episode = response.value else { return }
-                completionHandler(episode)
+                let value = response.result
+                switch value {
+                case .success(let episode):
+                    completionHandler(episode)
+                case .failure(let error):
+                    print(error)
+                }
             }
     }
 }
