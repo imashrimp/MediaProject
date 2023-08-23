@@ -29,15 +29,14 @@ class CinemaMapViewController: UIViewController {
         
         view.addSubview(mapView)
         makeConstraints()
-
+        
         filterButton.addTarget(self, action: #selector(filterButtonTapped), for: .touchUpInside)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: filterButton)
-
+        
         locationManager.delegate = self
         
         checkDeviceLocationAuthorization()
-//        let center = CLLocationCoordinate2D(latitude: 37.517829, longitude: 126.886270)
-//        setRegionAndAnnotation(center: center)
+        
         
         view.backgroundColor = .white
         self.navigationController?.navigationBar.tintColor = .darkGray
@@ -53,7 +52,7 @@ class CinemaMapViewController: UIViewController {
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
     }
-
+    
     func setRegionAndAnnotation(center: CLLocationCoordinate2D) {
         
         let region = MKCoordinateRegion(center: center, latitudinalMeters: 500, longitudinalMeters: 500)
@@ -70,7 +69,7 @@ extension CinemaMapViewController: CLLocationManagerDelegate {
     
     //사용자 위치 성공적으로 가져올 때마다 호출, kCLLocationAccuracyBest가 판단해서 호출함
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        print(locations)
+        
         if let coordinate = locations.last?.coordinate {
             print(coordinate)
             //이게 현재 위치를 디바이스 위치로 설정
@@ -82,6 +81,8 @@ extension CinemaMapViewController: CLLocationManagerDelegate {
     //사용자 위치정보 가져오는데 실패한 경우 호출
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(#function)
+        let center = CLLocationCoordinate2D(latitude: 37.517829, longitude: 126.886270)
+        setRegionAndAnnotation(center: center)
     }
     
     //권한 상태가 바뀔 때 호출됨 (허용->거부 OR 거부->허용 OR 초기설정)
@@ -133,7 +134,7 @@ extension CinemaMapViewController {
             print("restricted")
         case .denied:
             print("denied")
-            //MARK: - 여기에 설정화면으로 화면전환하는 메서드 호출 해야함
+            locationManager.startUpdatingLocation()
         case .authorizedAlways:
             //MARK: - 여기서도 위치 업데이트 해줘야하는거 아닌가? whenInUse에서만 업데이트 하면 여기도 처리가 알아서 되는건지 찾아보자
             print("authorizedAlways")
