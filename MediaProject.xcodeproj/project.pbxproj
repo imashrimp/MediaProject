@@ -11,6 +11,7 @@
 		17C402A02A95D81600265007 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 17C4029F2A95D81600265007 /* SnapKit */; };
 		17C402A22A95DA1600265007 /* CinemaMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C402A12A95DA1600265007 /* CinemaMapViewController.swift */; };
 		17C402A42A960F9700265007 /* CinemaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C402A32A960F9700265007 /* CinemaModel.swift */; };
+		17C402A62A961AE500265007 /* FilteringID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C402A52A961AE500265007 /* FilteringID.swift */; };
 		17F9329B2A864904000B2472 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F9329A2A864904000B2472 /* AppDelegate.swift */; };
 		17F9329D2A864904000B2472 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F9329C2A864904000B2472 /* SceneDelegate.swift */; };
 		17F9329F2A864904000B2472 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F9329E2A864904000B2472 /* ViewController.swift */; };
@@ -48,6 +49,7 @@
 		17C4029C2A95D80100265007 /* CinemaMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaMainViewController.swift; sourceTree = "<group>"; };
 		17C402A12A95DA1600265007 /* CinemaMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaMapViewController.swift; sourceTree = SOURCE_ROOT; };
 		17C402A32A960F9700265007 /* CinemaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaModel.swift; sourceTree = "<group>"; };
+		17C402A52A961AE500265007 /* FilteringID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteringID.swift; sourceTree = "<group>"; };
 		17F932972A864904000B2472 /* MediaProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17F9329A2A864904000B2472 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17F9329C2A864904000B2472 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				17C402A12A95DA1600265007 /* CinemaMapViewController.swift */,
 				17C4029C2A95D80100265007 /* CinemaMainViewController.swift */,
 				17C402A32A960F9700265007 /* CinemaModel.swift */,
+				17C402A52A961AE500265007 /* FilteringID.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				17F932CD2A871904000B2472 /* CreditTableViewCell.swift in Sources */,
 				17FF14382A8E3D0F00E56701 /* EpisodesCollectionViewCell.swift in Sources */,
 				17F932C42A8665BF000B2472 /* APIKeys.swift in Sources */,
+				17C402A62A961AE500265007 /* FilteringID.swift in Sources */,
 				17F9332F2A8DD020000B2472 /* TVSeasonInfoCollectionReusableView.swift in Sources */,
 				17FF142B2A8E1D0900E56701 /* URL.swift in Sources */,
 				17F932CA2A87188D000B2472 /* CreditDataModel.swift in Sources */,
