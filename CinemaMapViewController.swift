@@ -16,6 +16,7 @@ class CinemaMapViewController: UIViewController {
     let locationManager = CLLocationManager()
     
     let mapView = MKMapView()
+    
     let filterButton = {
         let button = UIButton()
         button.setTitle("Filter", for: .normal)
@@ -24,22 +25,73 @@ class CinemaMapViewController: UIViewController {
         return button
     }()
     
+    let locationButton = {
+       let button = UIButton()
+        let imageSize = UIImage.SymbolConfiguration(pointSize: 30)
+        let image = UIImage(systemName: "location.fill", withConfiguration: imageSize)
+        button.backgroundColor = .white
+        button.setImage(image, for: .normal)
+        button.contentMode = .scaleAspectFit
+//        button.tintColor = .
+        button.layer.cornerRadius = 20;
+        
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.addSubview(mapView)
+        view.addSubview(locationButton)
         makeConstraints()
         
         filterButton.addTarget(self, action: #selector(filterButtonTapped), for: .touchUpInside)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: filterButton)
+        locationButton.addTarget(self, action: #selector(locationButtonTapped), for: .touchUpInside)
         
         locationManager.delegate = self
+        
+        setAnnotation()
         
         checkDeviceLocationAuthorization()
         
         
+        
         view.backgroundColor = .white
         self.navigationController?.navigationBar.tintColor = .darkGray
+    }
+    
+    func setAnnotation() {
+        
+        let cinemaList = TheaterList().mapAnnotations
+        var annotationList: [MKPointAnnotation] = []
+        
+        for cinema in cinemaList {
+            let annotation = MKPointAnnotation()
+            annotation.title = cinema.location
+            annotation.coordinate = CLLocationCoordinate2D(latitude: cinema.latitude, longitude: cinema.longitude)
+            annotationList.append(annotation)
+        }
+        mapView.addAnnotations(annotationList)
+    }
+    
+    //MARK: - 권한 있을 때랑 없을 때랑 다르게 분기처리를 해보자
+    @objc func locationButtonTapped() {
+        let alert = UIAlertController(title: "위치정보 이용", message: "위치 서비스를 사용할 수 없습니다. 기기의 '설정>개인정보보호'에서 위치 서비스를 켜주세요.", preferredStyle: .alert)
+        
+        let goSetting = UIAlertAction(title: "설정으로 이동", style: .default) { _ in
+            
+            guard let appSetting = URL(string: UIApplication.openSettingsURLString) else {
+                print("설정 URL 잘 못 가져왔음.")
+                return
+            }
+        }
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
+        
+        alert.addAction(goSetting)
+        alert.addAction(cancel)
+        
+        present(alert, animated: true)
     }
     
     @objc func filterButtonTapped() {
@@ -50,6 +102,12 @@ class CinemaMapViewController: UIViewController {
         
         mapView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
+        }
+        
+        locationButton.snp.makeConstraints { make in
+            make.size.equalTo(40)
+            make.leading.equalTo(mapView.snp.leading).offset(20)
+            make.bottom.equalTo(mapView.snp.bottom).inset(40)
         }
     }
     

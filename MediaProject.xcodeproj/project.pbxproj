@@ -10,6 +10,7 @@
 		17C4029D2A95D80100265007 /* CinemaMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C4029C2A95D80100265007 /* CinemaMainViewController.swift */; };
 		17C402A02A95D81600265007 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 17C4029F2A95D81600265007 /* SnapKit */; };
 		17C402A22A95DA1600265007 /* CinemaMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C402A12A95DA1600265007 /* CinemaMapViewController.swift */; };
+		17C402A42A960F9700265007 /* CinemaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C402A32A960F9700265007 /* CinemaModel.swift */; };
 		17F9329B2A864904000B2472 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F9329A2A864904000B2472 /* AppDelegate.swift */; };
 		17F9329D2A864904000B2472 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F9329C2A864904000B2472 /* SceneDelegate.swift */; };
 		17F9329F2A864904000B2472 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F9329E2A864904000B2472 /* ViewController.swift */; };
@@ -46,6 +47,7 @@
 /* Begin PBXFileReference section */
 		17C4029C2A95D80100265007 /* CinemaMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaMainViewController.swift; sourceTree = "<group>"; };
 		17C402A12A95DA1600265007 /* CinemaMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaMapViewController.swift; sourceTree = SOURCE_ROOT; };
+		17C402A32A960F9700265007 /* CinemaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaModel.swift; sourceTree = "<group>"; };
 		17F932972A864904000B2472 /* MediaProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17F9329A2A864904000B2472 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17F9329C2A864904000B2472 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			children = (
 				17C402A12A95DA1600265007 /* CinemaMapViewController.swift */,
 				17C4029C2A95D80100265007 /* CinemaMainViewController.swift */,
+				17C402A32A960F9700265007 /* CinemaModel.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				17C402A22A95DA1600265007 /* CinemaMapViewController.swift in Sources */,
 				17FF14352A8E3CE500E56701 /* TVSeriesViewController.swift in Sources */,
 				17FF142F2A8E2E8A00E56701 /* TVSeriesWholeSeason.swift in Sources */,
+				17C402A42A960F9700265007 /* CinemaModel.swift in Sources */,
 				17F932C82A866FB6000B2472 /* CreditViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
