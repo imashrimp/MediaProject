@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1718869C2A98A0E7008D7F47 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1718869B2A98A0E7008D7F47 /* OnboardingViewController.swift */; };
+		1718869E2A98B911008D7F47 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1718869D2A98B911008D7F47 /* FirstViewController.swift */; };
+		171886A02A98B94F008D7F47 /* IntroOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1718869F2A98B94F008D7F47 /* IntroOnboardingViewController.swift */; };
 		17C4029D2A95D80100265007 /* CinemaMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C4029C2A95D80100265007 /* CinemaMainViewController.swift */; };
 		17C402A02A95D81600265007 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 17C4029F2A95D81600265007 /* SnapKit */; };
 		17C402A22A95DA1600265007 /* CinemaMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C402A12A95DA1600265007 /* CinemaMapViewController.swift */; };
@@ -48,6 +51,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1718869B2A98A0E7008D7F47 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		1718869D2A98B911008D7F47 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		1718869F2A98B94F008D7F47 /* IntroOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroOnboardingViewController.swift; sourceTree = "<group>"; };
 		17C4029C2A95D80100265007 /* CinemaMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaMainViewController.swift; sourceTree = "<group>"; };
 		17C402A12A95DA1600265007 /* CinemaMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaMapViewController.swift; sourceTree = SOURCE_ROOT; };
 		17C402A32A960F9700265007 /* CinemaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaModel.swift; sourceTree = "<group>"; };
@@ -101,6 +107,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1718869A2A98A074008D7F47 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				1718869B2A98A0E7008D7F47 /* OnboardingViewController.swift */,
+				1718869D2A98B911008D7F47 /* FirstViewController.swift */,
+				1718869F2A98B94F008D7F47 /* IntroOnboardingViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		17C4029B2A95D7E800265007 /* Map */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +150,7 @@
 		17F932992A864904000B2472 /* MediaProject */ = {
 			isa = PBXGroup;
 			children = (
+				1718869A2A98A074008D7F47 /* Onboarding */,
 				17C4029B2A95D7E800265007 /* Map */,
 				17F932FE2A8B9A19000B2472 /* Extension+Identifier.swift */,
 				17F932CB2A871904000B2472 /* CreditTableViewCell.swift */,
@@ -273,6 +290,7 @@
 			files = (
 				17F932C02A8663B1000B2472 /* TrendingMovieViewController.swift in Sources */,
 				17F932B92A86590E000B2472 /* TrendingTableViewCell.swift in Sources */,
+				171886A02A98B94F008D7F47 /* IntroOnboardingViewController.swift in Sources */,
 				17F932CD2A871904000B2472 /* CreditTableViewCell.swift in Sources */,
 				17FF14382A8E3D0F00E56701 /* EpisodesCollectionViewCell.swift in Sources */,
 				17F932C42A8665BF000B2472 /* APIKeys.swift in Sources */,
@@ -287,6 +305,7 @@
 				17F9329B2A864904000B2472 /* AppDelegate.swift in Sources */,
 				17C4029D2A95D80100265007 /* CinemaMainViewController.swift in Sources */,
 				17FF14312A8E363700E56701 /* TVSeriesWholeEpisodes.swift in Sources */,
+				1718869C2A98A0E7008D7F47 /* OnboardingViewController.swift in Sources */,
 				17F932FF2A8B9A19000B2472 /* Extension+Identifier.swift in Sources */,
 				17F932BC2A865FF6000B2472 /* TrendingMovieModel.swift in Sources */,
 				17F932D92A876AFF000B2472 /* TMDBAPIManager.swift in Sources */,
@@ -297,6 +316,7 @@
 				17FF142F2A8E2E8A00E56701 /* TVSeriesWholeSeason.swift in Sources */,
 				17C402A42A960F9700265007 /* CinemaModel.swift in Sources */,
 				17F932C82A866FB6000B2472 /* CreditViewController.swift in Sources */,
+				1718869E2A98B911008D7F47 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

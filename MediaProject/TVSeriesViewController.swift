@@ -23,6 +23,11 @@ class TVSeriesViewController: UIViewController {
         configureCollectionView()
         configureCollectionViewLayout()
         
+        callSeriesRequest()
+        
+    }
+    
+    func callSeriesRequest() {
         let chulsooGroup = DispatchGroup()
         let yeongheeGroup = DispatchGroup()
         
@@ -57,20 +62,22 @@ extension TVSeriesViewController: UICollectionViewDelegate {
     
 }
 
+//MARK: - ReusableView 추가하면 됨.
+
 extension TVSeriesViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return seriesInfo.numberOfSeasons
     }
     
+
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //여기서는 시즌이랑 에피소드 숫자랑 매칭을 해서 조건문에 맞춰 셀 수를 뱉어내자
-        
-        //섹션이 시즌의 수 만큼 있음. 섹션의 번호에 +1을 하면, 섹션의
+
         var cnt = 0
         for i in 0..<episodesArray.count {
             if section == i {
-                cnt = episodesArray[i].episodes.count //episodesArray 배열에 들어가있는 내부 배열의 index에 따라
+                cnt = episodesArray[i].episodes.count
             }
         }
         return cnt
@@ -80,7 +87,6 @@ extension TVSeriesViewController: UICollectionViewDataSource {
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EpisodesCollectionViewCell.identifier, for: indexPath) as? EpisodesCollectionViewCell else { return EpisodesCollectionViewCell() }
         
-        //MARK: - 셀의 아이템을 섹션별로 표시할 수 있게 조건문 설정해야함.
         for i in 0..<seriesInfo.numberOfSeasons {
             if indexPath.section == i {
                 cell.showContents(data: episodesArray[i].episodes[indexPath.row])
@@ -94,6 +100,7 @@ extension TVSeriesViewController: CollectionViewAttributeProtocol {
     func configureCollectionView() {
         tvSeriesCollectionView.delegate = self
         tvSeriesCollectionView.dataSource = self
+        
         let nib = UINib(nibName: EpisodesCollectionViewCell.identifier, bundle: nil)
         tvSeriesCollectionView.register(nib, forCellWithReuseIdentifier: EpisodesCollectionViewCell.identifier)
         
@@ -103,7 +110,10 @@ extension TVSeriesViewController: CollectionViewAttributeProtocol {
     
     func configureCollectionViewLayout() {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 200, height: 250) //이거 UIScreen.main.bounds 이거 써서 수정하자 물론 dispatchque.main.async로 처리
+        let width = UIScreen.main.bounds.width * 0.45
+        let height = width * 4/3
+        layout.itemSize = CGSize(width: width, height: height)
+        layout.sectionInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         layout.minimumLineSpacing = 8
         layout.minimumInteritemSpacing = 8 //이거 두개 보고 수정
         layout.scrollDirection = .vertical
@@ -111,8 +121,5 @@ extension TVSeriesViewController: CollectionViewAttributeProtocol {
         layout.headerReferenceSize = CGSize(width: 300, height: 50)
         
         tvSeriesCollectionView.collectionViewLayout = layout
-        
     }
-    
-    
 }

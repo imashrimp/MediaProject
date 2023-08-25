@@ -9,6 +9,9 @@ import UIKit
 import MapKit
 
 extension UIViewController {
+    
+    //MARK: - 여기서도 분기처리 할 때 열거형 사용해서 메서드 내부에서 let cinemaType: CinemaType의 형태로 사용 가능함
+    
     func filteringCinemaTapped(id: CinemaType) -> [MKPointAnnotation] {
         let cinemaList = TheaterList.mapAnnotations
         var annotationList: [MKPointAnnotation] = []

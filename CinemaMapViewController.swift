@@ -100,6 +100,7 @@ extension CinemaMapViewController {
             if CLLocationManager.locationServicesEnabled() {
                 
                 let authorization: CLAuthorizationStatus
+                var a: Int
                 
                 if #available(iOS 14.0, *) {
                     authorization = self.locationManager.authorizationStatus
