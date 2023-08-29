@@ -54,14 +54,12 @@ extension EditProfileViewController: UITableViewDelegate {
         case 0:
             vc.dataPassType = .noti
             vc.titleValue = profileCellData[indexPath.row].title
-            
-            
-            
-            
             navigationController?.pushViewController(vc, animated: true)
         case 1:
             vc.dataPassType = .delegate
+            vc.delegate = self
             vc.titleValue = profileCellData[indexPath.row].title
+            dump(indexPath)
             navigationController?.pushViewController(vc, animated: true)
         case 2:
             vc.dataPassType = .closure
@@ -98,4 +96,14 @@ extension EditProfileViewController: UITableViewDataSource {
     }
     
     
+}
+
+extension EditProfileViewController: ChangeNickNameProtocol {
+    
+    func recieveNickName(data: String) {
+        profileCellData[1].placeholer = data
+        let index = [IndexPath(row: 1, section: 0), IndexPath(row: 0, section: 1)]
+        mainVC.reloadRows(at: index, with: .none)
+        
+    }
 }

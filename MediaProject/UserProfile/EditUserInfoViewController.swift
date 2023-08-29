@@ -15,6 +15,8 @@ class EditUserInfoViewController: UIViewController {
     
     let mainVC = EditUserInfoView()
     
+    var delegate: ChangeNickNameProtocol?
+    
     override func loadView() {
         self.view = mainVC
     }
@@ -34,7 +36,15 @@ class EditUserInfoViewController: UIViewController {
         super.viewDidDisappear(animated)
         guard let textFieldValue = mainVC.textField.text else { return }
         
-        NotificationCenter.default.post(name: NSNotification.Name("name"), object: nil, userInfo: ["name": textFieldValue])
+        switch dataPassType {
+        case .noti:
+            NotificationCenter.default.post(name: NSNotification.Name("name"), object: nil, userInfo: ["name": textFieldValue])
+        case .delegate:
+            delegate?.recieveNickName(data: textFieldValue)
+        case .closure:
+            print("hi")
+        case .none:
+            print("none")
+        }
     }
-    
 }
