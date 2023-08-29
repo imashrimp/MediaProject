@@ -9,9 +9,9 @@ import UIKit
 
 class EditProfileViewController: UIViewController {
     
-    let mainVC = ProfileTableView()
+   private let mainVC = ProfileTableView()
     
-    var profileCellData = ProfileCellData().list
+   private var profileCellData = ProfileCellData().list
     
     override func loadView() {
         self.view = mainVC
@@ -35,7 +35,7 @@ class EditProfileViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name("name"), object: nil)
     }
     
-    @objc func showUserName(nofitication: NSNotification) {
+    @objc private func showUserName(nofitication: NSNotification) {
         
         if let userName = nofitication.userInfo?["name"] as? String {
             profileCellData[0].placeholer = userName
@@ -64,7 +64,6 @@ extension EditProfileViewController: UITableViewDelegate {
             vc.dataPassType = .delegate
             vc.delegate = self
             vc.titleValue = profileCellData[indexPath.row].title
-            dump(indexPath)
             navigationController?.pushViewController(vc, animated: true)
         case 2:
             vc.dataPassType = .closure

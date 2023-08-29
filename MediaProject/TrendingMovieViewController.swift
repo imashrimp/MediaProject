@@ -25,7 +25,7 @@ class TrendingMovieViewController: UIViewController {
         trendCustomView.trendingTableView.delegate = self
         trendCustomView.trendingTableView.dataSource = self
         trendCustomView.trendingTableView.rowHeight = UITableView.automaticDimension
-                
+        
         setNav()
         callRequest()
         
@@ -61,12 +61,12 @@ extension TrendingMovieViewController: UITableViewDelegate {
         
         let vc = CreditViewController()
         
-//        let item = movieList[indexPath.row]
+        let item = movieList[indexPath.row]
         
-//        vc.movieID = item.id
-//        vc.movieTitle = item.title
-//        vc.movieBackgroundPosterUrl = item.backdropPath
-        //        vc.movieOverview = item.overview
+        vc.movieID = item.id
+        vc.movieTitle = item.title
+        vc.movieBackgroundPosterUrl = item.backdropPath
+//        vc.movieOverview = item.overview
         
         self.navigationController?.pushViewController(vc, animated: true)
         
@@ -80,7 +80,7 @@ extension TrendingMovieViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-                
+        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TrendingCell.identifier) as? TrendingCell else { return UITableViewCell() }
         
         cell.showContents(movie: movieList[indexPath.row])

@@ -11,9 +11,10 @@ import SnapKit
 class EditUserInfoViewController: UIViewController {
     
     var titleValue: String?
+    
     var dataPassType: DataPassType?
     
-    let mainVC = EditUserInfoView()
+    private let mainVC = EditUserInfoView()
     
     var delegate: ChangeNickNameProtocol?
     

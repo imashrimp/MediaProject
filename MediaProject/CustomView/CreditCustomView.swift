@@ -32,12 +32,14 @@ class CreditCustomView: BaseView {
     
     override func setConstraints() {
         movieTitleLabel.snp.makeConstraints { make in
-            make.horizontalEdges.top.equalTo(self.safeAreaLayoutGuide).inset(8)
+            make.top.equalTo(self.safeAreaLayoutGuide).offset(8)
+            make.horizontalEdges.equalToSuperview().inset(8)
         }
         
         moviePosterImage.snp.makeConstraints { make in
             make.top.equalTo(movieTitleLabel.snp.bottom).offset(6)
             make.horizontalEdges.equalToSuperview().inset(8)
+            make.height.equalTo(moviePosterImage.snp.width).multipliedBy(0.75)
         }
         
         tableView.snp.makeConstraints { make in
@@ -45,6 +47,4 @@ class CreditCustomView: BaseView {
             make.horizontalEdges.bottom.equalToSuperview()
         }
     }
-    
-    
 }

@@ -38,8 +38,14 @@ class TMDBAPIManager {
         
         AF.request(url, method: .get, headers: header).validate()
             .responseDecodable(of: Credit.self) { response in
-                guard let credit = response.value else { return }
-                completionHandler(credit)
+                let value = response.result
+                switch value {
+                    
+                case .success(let credit):
+                    completionHandler(credit)
+                case .failure(let error):
+                    print(error)
+                }
             }
     }
     
