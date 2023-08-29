@@ -11,7 +11,7 @@ class EditProfileViewController: UIViewController {
     
     let mainVC = ProfileTableView()
     
-    let profileCellData = ProfileCellData().list
+    var profileCellData = ProfileCellData().list
     
     override func loadView() {
         self.view = mainVC
@@ -26,6 +26,18 @@ class EditProfileViewController: UIViewController {
         
         mainVC.delegate = self
         mainVC.dataSource = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(showUserName), name: NSNotification.Name("name"), object: nil)
+    }
+    
+    @objc func showUserName(nofitication: NSNotification) {
+        
+        if let userName = nofitication.userInfo?["name"] as? String {
+            profileCellData[0].placeholer = userName
+            let index = [IndexPath(row: 0, section: 0), IndexPath(row: 0, section: 1)]
+            mainVC.reloadRows(at: index, with: .none)
+        }
+        
     }
 }
 
@@ -35,9 +47,30 @@ extension EditProfileViewController: UITableViewDelegate {
         return ProfileUpperView()
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        <#code#>
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = EditUserInfoViewController()
+        
+        switch indexPath.row {
+        case 0:
+            vc.dataPassType = .noti
+            vc.titleValue = profileCellData[indexPath.row].title
+            
+            
+            
+            
+            navigationController?.pushViewController(vc, animated: true)
+        case 1:
+            vc.dataPassType = .delegate
+            vc.titleValue = profileCellData[indexPath.row].title
+            navigationController?.pushViewController(vc, animated: true)
+        case 2:
+            vc.dataPassType = .closure
+            vc.titleValue = profileCellData[indexPath.row].title
+            navigationController?.pushViewController(vc, animated: true)
+        default:
+            tableView.reloadRows(at: [indexPath], with: .none)
+        }
+    }
     
 }
 

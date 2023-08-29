@@ -17,7 +17,7 @@ struct ProfileCellDataModel {
 
 struct ProfileCellData {
     
-    let list: [ProfileCellDataModel] = [
+    var list: [ProfileCellDataModel] = [
         ProfileCellDataModel(title: "이름", placeholer: "이름", imageName: ""),
         ProfileCellDataModel(title: "사용자 이름", placeholer: "사용자 이름", imageName: ""),
         ProfileCellDataModel(title: "소개", placeholer: "소개", imageName: ""),
