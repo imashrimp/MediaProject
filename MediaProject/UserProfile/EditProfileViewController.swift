@@ -30,6 +30,11 @@ class EditProfileViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(showUserName), name: NSNotification.Name("name"), object: nil)
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name("name"), object: nil)
+    }
+    
     @objc func showUserName(nofitication: NSNotification) {
         
         if let userName = nofitication.userInfo?["name"] as? String {
