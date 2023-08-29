@@ -10,7 +10,6 @@ import Kingfisher
 
 class TrendingTableViewCell: UITableViewCell {
 
-
     @IBOutlet var releaseDateLabel: UILabel!
     @IBOutlet var containerView: UIView!
     @IBOutlet var posterImageView: UIImageView!
@@ -51,15 +50,6 @@ class TrendingTableViewCell: UITableViewCell {
     }
     
     func showCellContentsDecodable(movie: Result) {
-        releaseDateLabel.text = movie.releaseDate
-        guard let imageUrl = URL(string: "https://www.themoviedb.org/t/p/w1280" + movie.posterPath) else { return }
-        posterImageView.kf.setImage(with: imageUrl)
-        titleLabel.text = movie.title
-        originalTitleLabel.text = movie.originalTitle
-        detailLabel.text = "자세히 보기"
-        detailImageView.image = UIImage(systemName: "greaterthan")
+        
     }
-    
 }
-
-

@@ -58,10 +58,8 @@ class IntroOnboardingViewController: ViewController {
         let sceneDelegate = windowScene?.delegate as? SceneDelegate
 
 //        UserDefaults.standard.set(true, forKey: "launched")
-
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-
-        guard let vc = sb.instantiateViewController(withIdentifier: "TrendingMovieViewController") as? TrendingMovieViewController else { return }
+        
+        let vc = TrendingMovieViewController()
 
         let nav = UINavigationController(rootViewController: vc)
 
