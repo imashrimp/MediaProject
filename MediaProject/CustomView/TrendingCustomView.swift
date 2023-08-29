@@ -9,7 +9,7 @@ import UIKit
 
 class TrendingCustomView: BaseView {
     
-    lazy var trendingTableView = {
+    let trendingTableView = {
         let view = UITableView(frame: .zero, style: .plain)
         view.register(TrendingCell.self, forCellReuseIdentifier: TrendingCell.identifier)
         return view

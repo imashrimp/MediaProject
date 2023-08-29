@@ -8,7 +8,7 @@
 import UIKit
 import Alamofire
 
-
+//MARK: - BASEVC 만들어야하나?
 class TrendingMovieViewController: UIViewController {
     
     var movieList: [Result] = []

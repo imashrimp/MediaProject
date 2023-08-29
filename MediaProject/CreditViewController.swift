@@ -26,52 +26,61 @@ class CreditViewController: UIViewController {
 //    @IBOutlet var backgroundImage: UIImageView!
 //    @IBOutlet var tableView: UITableView!
     
-    let movieTitleLabel = {
-        let view = UILabel()
-        view.textAlignment = .center
-        view.font = .systemFont(ofSize: 25)
-        view.text = "MOVIE TITLE"
-        return view
-    }()
+//    let movieTitleLabel = {
+//        let view = UILabel()
+//        view.textAlignment = .center
+//        view.font = .systemFont(ofSize: 25)
+//        view.text = "MOVIE TITLE"
+//        return view
+//    }()
+//
+//    let moviePosterImageView = {
+//        let view = UIImageView()
+//        view.contentMode = .scaleAspectFit
+//        view.image = UIImage(systemName: "star")
+//        return view
+//    }()
+//
+//    lazy var creditTableView = {
+//        let view = UITableView()
+//        view.delegate = self
+//        view.dataSource = self
+//        view.rowHeight = 100
+//       return view
+//    }()
     
-    let moviePosterImageView = {
-        let view = UIImageView()
-        view.contentMode = .scaleAspectFit
-        view.image = UIImage(systemName: "star")
-        return view
-    }()
+    let mainVC = CreditCustomView()
     
-    lazy var creditTableView = {
-        let view = UITableView()
-        view.delegate = self
-        view.dataSource = self
-        view.rowHeight = 100
-       return view
-    }()
+    
+    override func loadView() {
+        self.view = mainVC
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         print("화면전환 완료")
-        view.backgroundColor = .white
+
         
-        view.addSubview(movieTitleLabel)
-        movieTitleLabel.snp.makeConstraints { make in
-            make.horizontalEdges.top.equalTo(view.safeAreaLayoutGuide).inset(8)
-        }
+//        view.addSubview(movieTitleLabel)
+//        movieTitleLabel.snp.makeConstraints { make in
+//            make.horizontalEdges.top.equalTo(view.safeAreaLayoutGuide).inset(8)
+//        }
         
-        view.addSubview(moviePosterImageView)
-        moviePosterImageView.snp.makeConstraints { make in
-            make.top.equalTo(movieTitleLabel.snp.bottom).offset(6)
-            make.horizontalEdges.equalToSuperview().inset(8)
-            make.height.equalTo(movieTitleLabel.snp.width).multipliedBy(0.75)
-        }
+//        view.addSubview(moviePosterImageView)
+//        moviePosterImageView.snp.makeConstraints { make in
+//            make.top.equalTo(movieTitleLabel.snp.bottom).offset(6)
+//            make.horizontalEdges.equalToSuperview().inset(8)
+//            make.height.equalTo(movieTitleLabel.snp.width).multipliedBy(0.75)
+//        }
         
-        view.addSubview(creditTableView)
-        creditTableView.snp.makeConstraints { make in
-            make.top.equalTo(moviePosterImageView.snp.bottom).offset(6)
-            make.horizontalEdges.bottom.equalTo(view.safeAreaLayoutGuide).inset(8)
-        }
+//        view.addSubview(creditTableView)
+//        creditTableView.snp.makeConstraints { make in
+//            make.top.equalTo(moviePosterImageView.snp.bottom).offset(6)
+//            make.horizontalEdges.bottom.equalTo(view.safeAreaLayoutGuide).inset(8)
+//        }
         
 //        let nib = UINib(nibName: CreditTableViewCell.identifier, bundle: nil)
         //identifier를 셀 이름으로 받을 수 잇도록 익스텐션에 연산프로퍼티 넣기
@@ -85,7 +94,7 @@ class CreditViewController: UIViewController {
         
         uiConfigure()
         
-        creditTableView.register(CreditCell.self, forCellReuseIdentifier: CreditCell.identifier)
+//        creditTableView.register(CreditCell.self, forCellReuseIdentifier: CreditCell.identifier)
         
 //        showMovieData()
 //        callCreditRequest()
