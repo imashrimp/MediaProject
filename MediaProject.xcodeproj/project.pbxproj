@@ -21,6 +21,13 @@
 		17499E662A9CADF000936051 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17499E652A9CADF000936051 /* BaseView.swift */; };
 		17C1382B2A9D6BE200D318B0 /* CreditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C1382A2A9D6BE200D318B0 /* CreditCell.swift */; };
 		17C1386D2A9DB01600D318B0 /* CreditCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C1386C2A9DB01600D318B0 /* CreditCustomView.swift */; };
+		17C138762A9DDBD200D318B0 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C138752A9DDBD200D318B0 /* EditProfileViewController.swift */; };
+		17C138782A9DDED700D318B0 /* ProfileUpperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C138772A9DDED700D318B0 /* ProfileUpperView.swift */; };
+		17C1387A2A9DE19800D318B0 /* ProfileImageChangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C138792A9DE19800D318B0 /* ProfileImageChangeButton.swift */; };
+		17C1387C2A9DE22A00D318B0 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C1387B2A9DE22A00D318B0 /* BaseButton.swift */; };
+		17C1387E2A9DE56900D318B0 /* ProfileTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C1387D2A9DE56900D318B0 /* ProfileTableView.swift */; };
+		17C138802A9DE6AC00D318B0 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C1387F2A9DE6AC00D318B0 /* ProfileTableViewCell.swift */; };
+		17C138852A9DEB9100D318B0 /* ProfileCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C138842A9DEB9100D318B0 /* ProfileCellData.swift */; };
 		17C4029D2A95D80100265007 /* CinemaMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C4029C2A95D80100265007 /* CinemaMainViewController.swift */; };
 		17C402A02A95D81600265007 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 17C4029F2A95D81600265007 /* SnapKit */; };
 		17C402A22A95DA1600265007 /* CinemaMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C402A12A95DA1600265007 /* CinemaMapViewController.swift */; };
@@ -76,6 +83,13 @@
 		17499E652A9CADF000936051 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		17C1382A2A9D6BE200D318B0 /* CreditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCell.swift; sourceTree = "<group>"; };
 		17C1386C2A9DB01600D318B0 /* CreditCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCustomView.swift; sourceTree = "<group>"; };
+		17C138752A9DDBD200D318B0 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		17C138772A9DDED700D318B0 /* ProfileUpperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUpperView.swift; sourceTree = "<group>"; };
+		17C138792A9DE19800D318B0 /* ProfileImageChangeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageChangeButton.swift; sourceTree = "<group>"; };
+		17C1387B2A9DE22A00D318B0 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
+		17C1387D2A9DE56900D318B0 /* ProfileTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableView.swift; sourceTree = "<group>"; };
+		17C1387F2A9DE6AC00D318B0 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		17C138842A9DEB9100D318B0 /* ProfileCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCellData.swift; sourceTree = "<group>"; };
 		17C4029C2A95D80100265007 /* CinemaMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaMainViewController.swift; sourceTree = "<group>"; };
 		17C402A12A95DA1600265007 /* CinemaMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaMapViewController.swift; sourceTree = SOURCE_ROOT; };
 		17C402A32A960F9700265007 /* CinemaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaModel.swift; sourceTree = "<group>"; };
@@ -154,6 +168,7 @@
 				17499E562A9C8D2000936051 /* BaseImageView.swift */,
 				17499E5C2A9C8F4800936051 /* BaseTableViewCell.swift */,
 				17499E652A9CADF000936051 /* BaseView.swift */,
+				17C1387B2A9DE22A00D318B0 /* BaseButton.swift */,
 			);
 			path = BaseView;
 			sourceTree = "<group>";
@@ -168,6 +183,19 @@
 				17C1386C2A9DB01600D318B0 /* CreditCustomView.swift */,
 			);
 			path = CustomView;
+			sourceTree = "<group>";
+		};
+		17C138742A9DDBAC00D318B0 /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				17C138792A9DE19800D318B0 /* ProfileImageChangeButton.swift */,
+				17C1387F2A9DE6AC00D318B0 /* ProfileTableViewCell.swift */,
+				17C1387D2A9DE56900D318B0 /* ProfileTableView.swift */,
+				17C138772A9DDED700D318B0 /* ProfileUpperView.swift */,
+				17C138752A9DDBD200D318B0 /* EditProfileViewController.swift */,
+				17C138842A9DEB9100D318B0 /* ProfileCellData.swift */,
+			);
+			path = UserProfile;
 			sourceTree = "<group>";
 		};
 		17C4029B2A95D7E800265007 /* Map */ = {
@@ -203,6 +231,7 @@
 		17F932992A864904000B2472 /* MediaProject */ = {
 			isa = PBXGroup;
 			children = (
+				17C138742A9DDBAC00D318B0 /* UserProfile */,
 				17499E5E2A9CA9EE00936051 /* CustomView */,
 				17499E552A9C8D0400936051 /* BaseView */,
 				17499E502A9C8A4500936051 /* CustomUI */,
@@ -352,6 +381,7 @@
 				17499E5D2A9C8F4800936051 /* BaseTableViewCell.swift in Sources */,
 				171886A02A98B94F008D7F47 /* IntroOnboardingViewController.swift in Sources */,
 				17F932CD2A871904000B2472 /* CreditTableViewCell.swift in Sources */,
+				17C138852A9DEB9100D318B0 /* ProfileCellData.swift in Sources */,
 				17FF14382A8E3D0F00E56701 /* EpisodesCollectionViewCell.swift in Sources */,
 				17499E642A9CADD700936051 /* TrendingCustomView.swift in Sources */,
 				17F932C42A8665BF000B2472 /* APIKeys.swift in Sources */,
@@ -359,6 +389,7 @@
 				171A29122A98D3F3000516C1 /* OverviewSectionHeader.swift in Sources */,
 				17C402A62A961AE500265007 /* FilteringID.swift in Sources */,
 				17499E5B2A9C8EAA00936051 /* TrendingCell.swift in Sources */,
+				17C138762A9DDBD200D318B0 /* EditProfileViewController.swift in Sources */,
 				17F9332F2A8DD020000B2472 /* TVSeasonInfoCollectionReusableView.swift in Sources */,
 				17FF142B2A8E1D0900E56701 /* URL.swift in Sources */,
 				17F932CA2A87188D000B2472 /* CreditDataModel.swift in Sources */,
@@ -369,17 +400,22 @@
 				17C1382B2A9D6BE200D318B0 /* CreditCell.swift in Sources */,
 				17499E602A9CA9FD00936051 /* TrendingTableView.swift in Sources */,
 				17F932D52A876848000B2472 /* EndPoint.swift in Sources */,
+				17C138802A9DE6AC00D318B0 /* ProfileTableViewCell.swift in Sources */,
 				17F9329B2A864904000B2472 /* AppDelegate.swift in Sources */,
 				17C4029D2A95D80100265007 /* CinemaMainViewController.swift in Sources */,
+				17C1387A2A9DE19800D318B0 /* ProfileImageChangeButton.swift in Sources */,
 				17499E522A9C8A6B00936051 /* CellLabel.swift in Sources */,
 				17499E572A9C8D2000936051 /* BaseImageView.swift in Sources */,
+				17C138782A9DDED700D318B0 /* ProfileUpperView.swift in Sources */,
 				17FF14312A8E363700E56701 /* TVSeriesWholeEpisodes.swift in Sources */,
 				1718869C2A98A0E7008D7F47 /* OnboardingViewController.swift in Sources */,
 				17F932FF2A8B9A19000B2472 /* Extension+Identifier.swift in Sources */,
 				17F932BC2A865FF6000B2472 /* TrendingMovieModel.swift in Sources */,
 				17F932D92A876AFF000B2472 /* TMDBAPIManager.swift in Sources */,
+				17C1387E2A9DE56900D318B0 /* ProfileTableView.swift in Sources */,
 				17F9329D2A864904000B2472 /* SceneDelegate.swift in Sources */,
 				17C402A22A95DA1600265007 /* CinemaMapViewController.swift in Sources */,
+				17C1387C2A9DE22A00D318B0 /* BaseButton.swift in Sources */,
 				17C402AA2A96269800265007 /* FiletringCinemaExtension.swift in Sources */,
 				17FF14352A8E3CE500E56701 /* TVSeriesViewController.swift in Sources */,
 				17FF142F2A8E2E8A00E56701 /* TVSeriesWholeSeason.swift in Sources */,
@@ -539,7 +575,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -568,7 +604,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

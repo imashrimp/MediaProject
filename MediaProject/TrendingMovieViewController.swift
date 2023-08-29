@@ -25,10 +25,15 @@ class TrendingMovieViewController: UIViewController {
         trendCustomView.trendingTableView.delegate = self
         trendCustomView.trendingTableView.dataSource = self
         trendCustomView.trendingTableView.rowHeight = UITableView.automaticDimension
-        
-        configureSetNav()
+                
+        setNav()
         callRequest()
         
+    }
+    
+    @objc func editProfileButtonTapped() {
+        let vc = EditProfileViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func callRequest() {
@@ -40,14 +45,18 @@ class TrendingMovieViewController: UIViewController {
         }
     }
     
-    func configureSetNav() {
+    func setNav() {
         self.navigationItem.title = "주간 인기 영화"
+        navigationController?.navigationBar.tintColor = .black
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "프로필 편집", style: .plain, target: self, action: #selector(editProfileButtonTapped))
     }
 }
 
 
 extension TrendingMovieViewController: UITableViewDelegate {
     
+    //MARK: - 여기 수정해야함
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let vc = CreditViewController()
@@ -67,7 +76,6 @@ extension TrendingMovieViewController: UITableViewDelegate {
 extension TrendingMovieViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("영화 갯수: \(movieList.count)")
         return movieList.count
     }
     
@@ -75,7 +83,6 @@ extension TrendingMovieViewController: UITableViewDataSource {
                 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TrendingCell.identifier) as? TrendingCell else { return UITableViewCell() }
         
-        print(cell.frame.height)
         cell.showContents(movie: movieList[indexPath.row])
         
         return cell

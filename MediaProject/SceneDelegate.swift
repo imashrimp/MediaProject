@@ -23,11 +23,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let vc = OnboardingViewController()
             window?.rootViewController = vc
         } else {
-            let sb = UIStoryboard(name: "Main", bundle: nil)
+//            let sb = UIStoryboard(name: "Main", bundle: nil)
             
-            guard let vc = sb.instantiateViewController(withIdentifier: "TrendingMovieViewController") as? TrendingMovieViewController else { return }
+//            guard let vc = sb.instantiateViewController(withIdentifier: "TrendingMovieViewController") as? TrendingMovieViewController else { return }
 
 //            guard let vc = sb.instantiateViewController(withIdentifier: "CreditViewController") as? CreditViewController else { return }
+            let vc = TrendingMovieViewController()
             
             let nav = UINavigationController(rootViewController: vc)
             
