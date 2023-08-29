@@ -17,6 +17,8 @@ class EditUserInfoViewController: UIViewController {
     
     var delegate: ChangeNickNameProtocol?
     
+    var completionHandler: ((String) -> Void)?
+    
     override func loadView() {
         self.view = mainVC
     }
@@ -42,7 +44,7 @@ class EditUserInfoViewController: UIViewController {
         case .delegate:
             delegate?.recieveNickName(data: textFieldValue)
         case .closure:
-            print("hi")
+            completionHandler?(textFieldValue)
         case .none:
             print("none")
         }

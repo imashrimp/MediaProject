@@ -64,6 +64,13 @@ extension EditProfileViewController: UITableViewDelegate {
         case 2:
             vc.dataPassType = .closure
             vc.titleValue = profileCellData[indexPath.row].title
+            
+            vc.completionHandler = { intro in
+                
+                    self.profileCellData[indexPath.row].placeholer = intro
+                    self.mainVC.reloadRows(at: [indexPath], with: .none)
+                
+            }
             navigationController?.pushViewController(vc, animated: true)
         default:
             tableView.reloadRows(at: [indexPath], with: .none)
