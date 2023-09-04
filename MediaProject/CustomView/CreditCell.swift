@@ -24,6 +24,8 @@ class CreditCell: BaseTableViewCell {
         ].forEach {
             contentView.addSubview($0)
         }
+        
+        selectionStyle = .none
     }
     
     override func setConstratints() {

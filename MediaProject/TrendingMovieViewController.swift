@@ -66,7 +66,7 @@ extension TrendingMovieViewController: UITableViewDelegate {
         vc.movieID = item.id
         vc.movieTitle = item.title
         vc.movieBackgroundPosterUrl = item.backdropPath
-//        vc.movieOverview = item.overview
+        vc.movieOverview = item.overview
         
         self.navigationController?.pushViewController(vc, animated: true)
         

@@ -27,8 +27,14 @@ class TMDBAPIManager {
         AF.request(url, method: .get, headers: header).validate()
             .responseDecodable(of: TMDB.self, decoder: decoder) { response in
                 
-                guard let movie = response.value else { return }
-                completinHandler(movie)
+                let value = response.result
+                
+                switch value {
+                case .success(let success):
+                    completinHandler(success)
+                case .failure(let error):
+                    print(error)
+                }
             }
     }
     

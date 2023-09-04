@@ -16,6 +16,7 @@ class CreditCustomView: BaseView {
     let tableView = {
        let view = UITableView()
         view.register(CreditCell.self, forCellReuseIdentifier: CreditCell.identifier)
+        view.register(MovieOverViewCell.self, forCellReuseIdentifier: MovieOverViewCell.identifier)
         return view
     }()
     
